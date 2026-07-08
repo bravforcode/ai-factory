@@ -1,0 +1,174 @@
+{
+  "version": 2,
+  "name": "ai-factory",
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/products",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/demo",
+      "destination": "/demo/index.html"
+    },
+    {
+      "source": "/demo/",
+      "destination": "/demo/index.html"
+    },
+    {
+      "source": "/01-prompt-pack-th",
+      "destination": "/01-prompt-pack-th.html"
+    },
+    {
+      "source": "/02-obsidian-student-kit",
+      "destination": "/02-obsidian-student-kit.html"
+    },
+    {
+      "source": "/03-freelance-pricing-calculator",
+      "destination": "/03-freelance-pricing-calculator.html"
+    },
+    {
+      "source": "/04-cold-email-template-pack",
+      "destination": "/04-cold-email-template-pack.html"
+    },
+    {
+      "source": "/05-ai-automation-workflow",
+      "destination": "/05-ai-automation-workflow.html"
+    },
+    {
+      "source": "/06-cv-international-template",
+      "destination": "/06-cv-international-template.html"
+    },
+    {
+      "source": "/07-n8n-sme-workflow-pack",
+      "destination": "/07-n8n-sme-workflow-pack.html"
+    },
+    {
+      "source": "/08-content-calendar-90d",
+      "destination": "/08-content-calendar-90d.html"
+    },
+    {
+      "source": "/09-finance-tracker-thb",
+      "destination": "/09-finance-tracker-thb.html"
+    },
+    {
+      "source": "/10-ai-agent-starter-github",
+      "destination": "/10-ai-agent-starter-github.html"
+    },
+    {
+      "source": "/t/prompt-pack-th",
+      "destination": "/01-prompt-pack-th.html"
+    },
+    {
+      "source": "/t/obsidian-student-kit",
+      "destination": "/02-obsidian-student-kit.html"
+    },
+    {
+      "source": "/t/freelance-pricing-calculator",
+      "destination": "/03-freelance-pricing-calculator.html"
+    },
+    {
+      "source": "/t/cold-email-template-pack",
+      "destination": "/04-cold-email-template-pack.html"
+    },
+    {
+      "source": "/t/ai-automation-workflow",
+      "destination": "/05-ai-automation-workflow.html"
+    },
+    {
+      "source": "/t/cv-international-template",
+      "destination": "/06-cv-international-template.html"
+    },
+    {
+      "source": "/t/n8n-sme-workflow-pack",
+      "destination": "/07-n8n-sme-workflow-pack.html"
+    },
+    {
+      "source": "/t/content-calendar-90d",
+      "destination": "/08-content-calendar-90d.html"
+    },
+    {
+      "source": "/t/finance-tracker-thb",
+      "destination": "/09-finance-tracker-thb.html"
+    },
+    {
+      "source": "/t/ai-agent-starter-github",
+      "destination": "/10-ai-agent-starter-github.html"
+    },
+    {
+      "source": "/thanks-01-prompt-pack-th",
+      "destination": "/thanks-01-prompt-pack-th.html"
+    },
+    {
+      "source": "/thanks-02-obsidian-student-kit",
+      "destination": "/thanks-02-obsidian-student-kit.html"
+    },
+    {
+      "source": "/thanks-03-freelance-pricing-calculator",
+      "destination": "/thanks-03-freelance-pricing-calculator.html"
+    },
+    {
+      "source": "/thanks-04-cold-email-template-pack",
+      "destination": "/thanks-04-cold-email-template-pack.html"
+    },
+    {
+      "source": "/thanks-05-ai-automation-workflow",
+      "destination": "/thanks-05-ai-automation-workflow.html"
+    },
+    {
+      "source": "/thanks-06-cv-international-template",
+      "destination": "/thanks-06-cv-international-template.html"
+    },
+    {
+      "source": "/thanks-07-n8n-sme-workflow-pack",
+      "destination": "/thanks-07-n8n-sme-workflow-pack.html"
+    },
+    {
+      "source": "/thanks-08-content-calendar-90d",
+      "destination": "/thanks-08-content-calendar-90d.html"
+    },
+    {
+      "source": "/thanks-09-finance-tracker-thb",
+      "destination": "/thanks-09-finance-tracker-thb.html"
+    },
+    {
+      "source": "/thanks-10-ai-agent-starter-github",
+      "destination": "/thanks-10-ai-agent-starter-github.html"
+    }
+  ]
+}

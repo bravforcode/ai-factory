@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai Factory — 10 AI Tools สำหรับ Freelancer และนักศึกษา</title>
+  <meta name="description" content="10 AI Tools พร้อมใช้ ราคา 149–999 บาท ดาวน์โหลดได้ทันที ใช้ได้ตลอดชีพ คืนเงิน 7 วัน">
+  <meta property="og:title" content="Ai Factory — AI Tools for Freelancers & Students">
+  <meta property="og:description" content="10 AI Tools พร้อมใช้ ราคา 149–999 บาท สำหรับ Freelancer และนักศึกษา">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og-image.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'IBM Plex Sans Thai', 'Inter', 'Sarabun', system-ui, sans-serif; }
+    .gradient-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+    .gradient-cta { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .product-card { transition: transform .2s ease, box-shadow .2s ease; }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(0,0,0,.2); }
+    html { scroll-behavior: smooth; }
+    /* Theme toggle */
+    .theme-toggle, .lang-toggle {
+      background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px; border-radius: 8px; color: currentColor;
+      opacity: 0.7; transition: opacity 0.2s;
+    }
+    .theme-toggle:hover, .lang-toggle:hover { opacity: 1; }
+    .theme-toggle svg { width: 18px; height: 18px; }
+    /* Dark mode overrides */
+    html.dark { background: #0f172a !important; }
+    html.dark body { background: #0f172a !important; color: #f1f5f9 !important; }
+    html.dark nav, html.dark .bg-white { background: rgba(30,41,59,0.95) !important; }
+    html.dark .bg-slate-50 { background: #1e293b !important; }
+    html.dark .bg-slate-900 { background: #020617 !important; }
+    html.dark .text-slate-900, html.dark h1, html.dark h2, html.dark h3 { color: #f1f5f9 !important; }
+    html.dark .text-slate-600 { color: #94a3b8 !important; }
+    html.dark .text-slate-500 { color: #64748b !important; }
+    html.dark .text-slate-800 { color: #e2e8f0 !important; }
+    html.dark .border-slate-200, html.dark .border-slate-100 { border-color: #334155 !important; }
+    html.dark .border-t, html.dark .border-b, html.dark .border-y { border-color: #334155 !important; }
+    html.dark .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.4) !important; }
+    html.dark .hover\:text-slate-900:hover { color: #f1f5f9 !important; }
+    html.dark .hover\:text-white:hover { color: #ffffff !important; }
+    html.dark footer { background: #020617 !important; }
+  </style>
+  <script>
+  // Dark mode - load preference immediately to prevent flash
+  (function() {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+  </script>
+  <script>
+  var translations = {
+    th: {
+      hero_title: "เครื่องมือดิจิทัล สำหรับคนไทย ทํางานออฟฟิศ/ฟรีแลนซ์/SME",
+      hero_cta: "เลือกสินค้า 10 รายการ \u2193",
+      demo_cta: "\uD83C\uDFAE ลอง Demo Funnel",
+      how_title: "วิธีซื้อ",
+      products_title: "10 สินค้าทั้งหมด",
+      final_title: "พร้อมเริ่มแล้ว?",
+      final_sub: "เลือกสินค้าที่ใช่ จ่ายเงิน ดาวน์โหลด ใช้ได้เลย",
+      final_cta: "เลือกสินค้าเลย \u2192"
+    },
+    en: {
+      hero_title: "AI Tools for Freelancers & Students",
+      hero_cta: "View All 10 Products \u2193",
+      demo_cta: "\uD83C\uDFAE Try Demo Funnel",
+      how_title: "How It Works",
+      products_title: "All 10 Products",
+      final_title: "Ready to Start?",
+      final_sub: "Pick a product, pay, download, and start using",
+      final_cta: "Choose Product \u2192"
+    }
+  };
+  </script>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+  <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="font-extrabold text-xl flex items-center gap-2">
+        <span>&#9889;</span> <span>Ai Factory<span class="text-purple-600">.store</span></span>
+      </a>
+      <div class="flex items-center gap-3 text-sm font-medium">
+        <a href="#products" class="text-slate-600 hover:text-slate-900 hidden sm:inline">Products</a>
+        <a href="#how" class="text-slate-600 hover:text-slate-900 hidden sm:inline">How it works</a>
+        <a href="/demo/" class="text-purple-600 hover:text-purple-800">Demo</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">
+          <span class="lang-th" style="font-weight:600;font-size:13px">TH</span>
+          <span class="lang-en" style="display:none;font-weight:600;font-size:13px">EN</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <header class="gradient-hero text-white py-20 md:py-32 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block bg-white/20 backdrop-blur text-sm font-semibold uppercase tracking-wider px-4 py-2 rounded-full mb-6">&#9889; 10 AI Tools &middot; 149&ndash;999 THB &middot; ส่งทันที</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6" data-i18n="hero_title">เครื่องมือดิจิทัล สำหรับคนไทย ทำงานออฟฟิศ/ฟรีแลนซ์/SME</h1>
+      <p class="text-lg md:text-2xl opacity-95 mb-10 max-w-2xl mx-auto leading-relaxed">Prompt Pack, Obsidian, Cold Email, AI Automation, CV, n8n, Content Calendar, Finance Tracker, AI Agent &mdash; เลือกซื้อทีละตัว ดาวน์โหลดทันที ใช้ได้ตลอดชีพ</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#products" class="bg-white text-purple-700 font-bold text-lg px-10 py-4 rounded-full shadow-2xl hover:scale-105 transition" data-i18n="hero_cta">เลือกสินค้า 10 รายการ &#8595;</a>
+        <a href="/demo/" class="bg-white/10 backdrop-blur border-2 border-white/30 text-white font-semibold text-lg px-10 py-4 rounded-full hover:bg-white/20 transition" data-i18n="demo_cta">&#127918; ลอง Demo Funnel</a>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mt-8 text-sm opacity-90">
+        <span>&#10003; ดาวน์โหลดทันที</span>
+        <span>&#10003; ใช้ได้ตลอดชีพ</span>
+        <span>&#10003; คืนเงิน 7 วัน</span>
+        <span>&#10003; ชำระผ่าน Stripe (บัตร/PromptPay/TrueMoney)</span>
+      </div>
+    </div>
+  </header>
+  <section id="products" class="py-16 md:py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-3" data-i18n="products_title">10 สินค้าทั้งหมด</h2>
+        <p class="text-slate-600 text-lg">คลิกดูรายละเอียด &#8594; ซื้อผ่าน Stripe</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/01-prompt-pack-th.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#128293; ขายดี #1</span><h3 class="text-lg font-bold mb-2 group-hover:text-purple-600 transition">AI Prompt Pack ภาษาไทย</h3><p class="text-sm text-slate-600 mb-4 flex-1">50 prompt พร้อมใช้ สำหรับงานออฟฟิศ</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-purple-600">&#3647;299</span><span class="text-purple-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/02-obsidian-student-kit.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#127891; นักศึกษา</span><h3 class="text-lg font-bold mb-2 group-hover:text-indigo-600 transition">Obsidian Starter Kit นักศึกษา</h3><p class="text-sm text-slate-600 mb-4 flex-1">Template vault พร้อมใช้ เปิด 10 นาทีจบ</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-indigo-600">&#3647;199</span><span class="text-indigo-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/03-freelance-pricing-calculator.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#128176; หยุดคิดถูก</span><h3 class="text-lg font-bold mb-2 group-hover:text-emerald-600 transition">Freelance Pricing Calculator (THB)</h3><p class="text-sm text-slate-600 mb-4 flex-1">Google Sheet คำนวณ hourly/daily/project</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-emerald-600">&#3647;149</span><span class="text-emerald-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/04-cold-email-template-pack.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#128231; Sales/B2B</span><h3 class="text-lg font-bold mb-2 group-hover:text-rose-600 transition">Cold Email Template Pack TH/EN</h3><p class="text-sm text-slate-600 mb-4 flex-1">10 template ตอบกลับ 15%+</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-rose-600">&#3647;399</span><span class="text-rose-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/05-ai-automation-workflow.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#9889; ประหยัด 5ชม./สัปดาห์</span><h3 class="text-lg font-bold mb-2 group-hover:text-amber-600 transition">AI Automation Workflow Cheatsheet</h3><p class="text-sm text-slate-600 mb-4 flex-1">10 workflow ให้ AI ทำงานแทน</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-amber-600">&#3647;499</span><span class="text-amber-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/06-cv-international-template.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-sky-100 text-sky-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#127758; ATS-friendly</span><h3 class="text-lg font-bold mb-2 group-hover:text-sky-600 transition">CV/Resume สมัครงานต่างประเทศ</h3><p class="text-sm text-slate-600 mb-4 flex-1">3 template + cover letter ผ่าน ATS</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-sky-600">&#3647;199</span><span class="text-sky-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/07-n8n-sme-workflow-pack.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-fuchsia-100 text-fuchsia-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#129302; แทน VA 15,000/mo</span><h3 class="text-lg font-bold mb-2 group-hover:text-fuchsia-600 transition">N8N Workflow Pack SME</h3><p class="text-sm text-slate-600 mb-4 flex-1">5 workflow n8n import แล้วใช้ได้เลย</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-fuchsia-600">&#3647;799</span><span class="text-fuchsia-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/08-content-calendar-90d.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-pink-100 text-pink-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#128197; 270 caption</span><h3 class="text-lg font-bold mb-2 group-hover:text-pink-600 transition">Content Calendar 90 วัน</h3><p class="text-sm text-slate-600 mb-4 flex-1">270 caption &#215; 3 platform &#215; 90 วัน</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-pink-600">&#3647;599</span><span class="text-pink-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/09-finance-tracker-thb.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#128176; ขายดี #2</span><h3 class="text-lg font-bold mb-2 group-hover:text-teal-600 transition">Personal Finance Tracker (THB)</h3><p class="text-sm text-slate-600 mb-4 flex-1">Google Sheet วางแผนการเงิน</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-teal-600">&#3647;149</span><span class="text-teal-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+        <a href="/10-ai-agent-starter-github.html" class="product-card bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col group"><span class="inline-block self-start bg-violet-100 text-violet-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">&#129489;&#8205;&#128187; Developer</span><h3 class="text-lg font-bold mb-2 group-hover:text-violet-600 transition">AI Agent Starter (GitHub)</h3><p class="text-sm text-slate-600 mb-4 flex-1">Python chat agent + tool calling</p><div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100"><span class="text-2xl font-extrabold text-violet-600">&#3647;999</span><span class="text-violet-600 text-sm font-semibold">ดูรายละเอียด &#8594;</span></div></a>
+      </div>
+    </div>
+  </section>
+  <section id="how" class="py-16 md:py-24 px-4 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12" data-i18n="how_title">วิธีซื้อ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-3">1</div><h3 class="font-bold mb-1">เลือกสินค้า</h3><p class="text-sm text-slate-600">คลิกสินค้าที่สนใจ อ่านรายละเอียด</p></div>
+        <div class="text-center"><div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-3">2</div><h3 class="font-bold mb-1">จ่ายเงิน</h3><p class="text-sm text-slate-600">Stripe Checkout รับบัตร/PromptPay/TrueMoney</p></div>
+        <div class="text-center"><div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-3">3</div><h3 class="font-bold mb-1">รับลิงก์ดาวน์โหลด</h3><p class="text-sm text-slate-600">ส่งทาง email อัตโนมัติ ภายใน 5 นาที</p></div>
+        <div class="text-center"><div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl font-extrabold mx-auto mb-3">4</div><h3 class="font-bold mb-1">ใช้ได้ตลอดชีพ</h3><p class="text-sm text-slate-600">ดาวน์โหลดซ้ำได้ ไม่มีวันหมดอายุ</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="gradient-cta text-white py-16 md:py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4" data-i18n="final_title">พร้อมเริ่มแล้ว?</h2>
+      <p class="text-lg md:text-xl opacity-95 mb-8" data-i18n="final_sub">เลือกสินค้าที่ใช่ จ่ายเงิน ดาวน์โหลด ใช้ได้เลย</p>
+      <a href="#products" class="inline-block bg-white text-pink-600 font-bold text-lg px-10 py-4 rounded-full shadow-2xl hover:scale-105 transition" data-i18n="final_cta">เลือกสินค้าเลย &#8594;</a>
+    </div>
+  </section>
+  <footer class="bg-slate-900 text-slate-300 py-12 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div><div class="font-extrabold text-white text-lg mb-2">&#9889; Ai Factory<span class="text-purple-400">.store</span></div><p class="text-sm">เครื่องมือดิจิทัลสำหรับคนไทยทำงานออฟฟิศ/ฟรีแลนซ์/SME</p></div>
+      <div><div class="font-bold text-white mb-3">Products</div><ul class="space-y-1.5 text-sm"><li><a href="/01-prompt-pack-th.html" class="hover:text-white">AI Prompt Pack TH</a></li><li><a href="/02-obsidian-student-kit.html" class="hover:text-white">Obsidian Student Kit</a></li><li><a href="/07-n8n-sme-workflow-pack.html" class="hover:text-white">N8N Workflow Pack</a></li><li><a href="#products" class="hover:text-white">ดูทั้งหมด 10 รายการ &#8594;</a></li></ul></div>
+      <div><div class="font-bold text-white mb-3">Contact</div><ul class="space-y-1.5 text-sm"><li>&#128231; <a href="mailto:hello@aifactory.store" class="hover:text-white">hello@aifactory.store</a></li><li>&#127918; <a href="/demo/" class="hover:text-white">Demo funnel</a></li><li>&#128172; <a href="https://lin.ee/@aifactory" class="hover:text-white">LINE @aifactory</a></li></ul></div>
+    </div>
+    <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+      <p>&copy; 2026 Ai Factory &middot; All rights reserved &middot; <a href="#" class="hover:text-slate-300">Privacy</a> &middot; <a href="#" class="hover:text-slate-300">Refund Policy</a></p>
+    </div>
+  </footer>
+  <script>
+  (function(){
+    // DARK MODE
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+    var toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      function updateThemeIcon() {
+        var isDark = document.documentElement.classList.contains('dark');
+        var sun = toggle.querySelector('.sun-icon');
+        var moon = toggle.querySelector('.moon-icon');
+        if (sun) sun.style.display = isDark ? 'none' : 'block';
+        if (moon) moon.style.display = isDark ? 'block' : 'none';
+      }
+      toggle.addEventListener('click', function() {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        updateThemeIcon();
+      });
+      updateThemeIcon();
+    }
+    // LANGUAGE SWITCHER
+    var currentLang = localStorage.getItem('lang') || 'th';
+    var langBtn = document.getElementById('lang-toggle');
+    function applyLang() {
+      var thSpans = document.querySelectorAll('.lang-th');
+      var enSpans = document.querySelectorAll('.lang-en');
+      thSpans.forEach(function(s){ s.style.display = currentLang === 'th' ? 'inline' : 'none'; });
+      enSpans.forEach(function(s){ s.style.display = currentLang === 'en' ? 'inline' : 'none'; });
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var key = el.getAttribute('data-i18n');
+        if (window.translations && translations[currentLang] && translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    }
+    if (langBtn) {
+      langBtn.addEventListener('click', function(){
+        currentLang = currentLang === 'th' ? 'en' : 'th';
+        localStorage.setItem('lang', currentLang);
+        applyLang();
+      });
+    }
+    applyLang();
+  })();
+  </script>
+</body>
+</html>

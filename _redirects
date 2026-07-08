@@ -1,0 +1,48 @@
+﻿# Netlify _redirects — ai-factory Store
+# Mirror of netlify.toml. Netlify prefers _redirects for SPA-style routing.
+# Lines starting with # are comments. Format: from -> to [status]
+# https://docs.netlify.com/routing/redirects/
+
+# -----------------------------------------------------------------------------
+# Convenience aliases (301 = permanent)
+# -----------------------------------------------------------------------------
+/products             /                            301
+/demo                 /demo/                       301
+/demo/index.html      /demo/                       301
+/thanks               /thanks-01-prompt-pack-th.html  301
+
+# -----------------------------------------------------------------------------
+# Short-link rewrites — /t/<slug> → <NN>-<slug>.html
+# status 200 = internal rewrite (URL bar keeps clean form, no .html visible)
+# -----------------------------------------------------------------------------
+/t/prompt-pack-th                /01-prompt-pack-th.html                200
+/t/obsidian-student-kit          /02-obsidian-student-kit.html          200
+/t/freelance-pricing-calculator  /03-freelance-pricing-calculator.html  200
+/t/cold-email-template-pack      /04-cold-email-template-pack.html      200
+/t/ai-automation-workflow        /05-ai-automation-workflow.html        200
+/t/cv-international-template     /06-cv-international-template.html     200
+/t/n8n-sme-workflow-pack         /07-n8n-sme-workflow-pack.html         200
+/t/content-calendar-90d          /08-content-calendar-90d.html          200
+/t/finance-tracker-thb           /09-finance-tracker-thb.html           200
+/t/ai-agent-starter-github       /10-ai-agent-starter-github.html       200
+
+# -----------------------------------------------------------------------------
+# Pretty URLs (Netlify native: serves /foo.html when user visits /foo)
+# These are implicit and listed here for documentation only.
+# To force, add explicit rules below. Safe to keep as no-op fallbacks.
+# -----------------------------------------------------------------------------
+# /01-prompt-pack-th            /01-prompt-pack-th.html
+# /02-obsidian-student-kit      /02-obsidian-student-kit.html
+# /03-freelance-pricing-calculator  /03-freelance-pricing-calculator.html
+# /04-cold-email-template-pack  /04-cold-email-template-pack.html
+# /05-ai-automation-workflow    /05-ai-automation-workflow.html
+# /06-cv-international-template /06-cv-international-template.html
+# /07-n8n-sme-workflow-pack     /07-n8n-sme-workflow-pack.html
+# /08-content-calendar-90d      /08-content-calendar-90d.html
+# /09-finance-tracker-thb       /09-finance-tracker-thb.html
+# /10-ai-agent-starter-github   /10-ai-agent-starter-github.html
+
+# -----------------------------------------------------------------------------
+# Catch-all 404 → homepage
+# -----------------------------------------------------------------------------
+/*                    /404.html                      404

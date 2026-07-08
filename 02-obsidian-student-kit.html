@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian Starter Kit นักศึกษา | Template vault พร้อมใช้ เปิด 10 นาทีจบ</title>
+  <meta name="description" content="Template ครบ Daily Note, Exam Prep, Project Tracker สำหรับนักศึกษา">
+  <meta property="og:title" content="Obsidian Starter Kit นักศึกษา">
+  <meta property="og:description" content="Template ครบ Daily Note, Exam Prep, Project Tracker สำหรับนักศึกษา">
+  <meta property="og:type" content="product">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'IBM Plex Sans Thai', 'Inter', 'Sarabun', system-ui, sans-serif; }
+    .gradient-hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-final { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    html { scroll-behavior: smooth; }
+  </style>
+  <!-- Stripe Buy Button will replace this anchor -->
+
+<script>
+  // Dark mode - load preference immediately to prevent flash
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
+<style id="dark-mode-overrides">
+  /* Dark mode overrides for Tailwind classes */
+  .dark body { background-color: #0f172a !important; color: #f1f5f9 !important; }
+  .dark .bg-white { background-color: #1e293b !important; }
+  .dark .bg-slate-50 { background-color: #1e293b !important; }
+  .dark .bg-slate-900 { background-color: #020617 !important; }
+  .dark .text-slate-900 { color: #f1f5f9 !important; }
+  .dark .text-slate-700 { color: #e2e8f0 !important; }
+  .dark .text-slate-600 { color: #cbd5e1 !important; }
+  .dark .text-slate-500 { color: #94a3b8 !important; }
+  .dark .text-slate-400 { color: #64748b !important; }
+  .dark .border-slate-200 { border-color: #334155 !important; }
+  .dark .border-t-2 { border-color: #6366f1 !important; }
+  .dark details { background-color: #1e293b !important; }
+  .dark .bg-purple-100 { background-color: #312e81 !important; }
+  .dark .bg-gradient-to-r { background: linear-gradient(to right, #1e293b, #1e293b) !important; }
+  .dark .from-purple-50 { --tw-gradient-from: #1e293b !important; }
+  .dark .to-blue-50 { --tw-gradient-to: #1e293b !important; }
+  /* Fix gradient sections for dark mode */
+  .dark .gradient-hero, .dark .gradient-final, .dark .gradient-success { opacity: 0.9; }
+  /* Fix sticky CTA bar */
+  .dark .fixed.bottom-0 { background-color: #1e293b !important; border-color: #6366f1 !important; }
+</style>
+<script>
+const translations = {
+  th: {
+    nav_products: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a",
+    hero_title: "Ai Factory \u2014 \u0e40\u0e04\u0e23\u0e37\u0e2d\u0e02\u0e48\u0e32 AI \u0e2a\u0e23\u0e34\u0e10\u0e2a\u0e4c\u0e2a\u0e43\u0e2b\u0e0d\u0e48 Freelancer \u0e41\u0e25\u0e49\u0e27 \u0e19\u0e31\u0e01\u0e28\u0e34\u0e4a\u0e27\u0e01\u0e4c",
+    hero_subtitle: "10 \u0e40\u0e04\u0e23\u0e37\u0e2d\u0e02\u0e48\u0e32 AI \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21 \u0e23\u0e32\u0e22\u0e40\u0e15\u0e49\u0e19 \u0ba4149",
+    hero_cta: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+    product_buy: "\u0e0b\u0e37\u0e48\u0e2d\u0e44\u0e25\u0e49\u0e27",
+    footer_products: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a",
+    footer_contact: "\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e07\u0e40\u0e23\u0e34\u0e48\u0e21",
+    footer_privacy: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e41\u0e1b\u0e49\u0e25\u0e15\u0e4c\u0e2a\u0e38\u0e4c\u0e2a\u0e34\u0e49\u0e19",
+    footer_copyright: "\u00a9 2026 Ai Factory. \u0e2a\u0e31\u0e1a\u0e25\u0e34\u0e02\u0e2a\u0e34\u0e49\u0e19",
+    problems_title: "\u0e04\u0e38\u0e13\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e1b\u0e48\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e49?",
+    solution_helps: "\u0e0a\u0e31\u0e14\u0e04\u0e38\u0e13\u0e44\u0e14\u0e49\u0e41\u0e1a\u0e19\u0e19\u0e35\u0e49",
+    included_title: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a",
+    permanent_use: "\u0e43\u0e0a\u0e49\u0e44\u0e14\u0e49\u0e17\u0e32\u0e07\u0e40\u0e0a\u0e35\u0e22\u0e27",
+    lifetime: "\u0e43\u0e0a\u0e49\u0e44\u0e14\u0e49\u0e17\u0e32\u0e07\u0e40\u0e0a\u0e35\u0e22\u0e27",
+    refund7: "\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27",
+    secure_payment: "\u0e0a\u0e32\u0e40\u0e22\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e1e\u0e2d\u0e23\u0e4c Stripe",
+    cta_buy_now: "\u0e0b\u0e37\u0e48\u0e2d\u0e44\u0e25\u0e49\u0e27",
+    faq_title: "\u0e02\u0e2d\u0e07\u0e19\u0e32\u0e22\u0e01\u0e32\u0e23\u0e17\u0e33\u0e1a\u0e23\u0e32\u0e07\u0e07",
+    final_cta_title: "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e40\u0e23\u0e34\u0e48\u0e21\u0e41\u0e25\u0e49\u0e27?",
+    mobile_buy: "\u0e0b\u0e37\u0e48\u0e2d \u0e23\u0e32\u0e22\u0e40\u0e15\u0e49\u0e19 \u2192",
+    thanks_title: "\u0e27\u0e30\u0e04\u0e31\u0e49\u0e27\u0e43\u0e0a!",
+    download_title: "\u0e14\u0e42\u0e14\u0e22\u0e44\u0e1f\u0e25\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13",
+    next_steps: "\u0e02\u0e31\u0e49\u0e19\u0e15\u0e49\u0e2d\u0e14\u0e42\u0e14\u0e22",
+    step1_download: "\u0e14\u0e42\u0e14\u0e22\u0e44\u0e1f\u0e25\u0e4c\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e14\u0e49\u0e27\u0e22",
+    step2_follow: "\u0e40\u0e1b\u0e34\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e41\u0e25\u0e49\u0e27\u0e41\u0e15\u0e30\u0e17\u0e33\u0e21\u0e31\u0e48\u0e19\u0e01\u0e32\u0e23\u0e32\u0e22\u0e32\u0e07",
+    step3_support: "\u0e2b\u0e32\u0e01\u0e44\u0e21\u0e49\u0e02\u0e2d\u0e07\u0e2b\u0e32\u0e01 \u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e07",
+    like_share: "\u0e02\u0e2d\u0e07\u0e44\u0e21\u0e49? \u0e41\u0e0a\u0e1a\u0e41\u0e0a\u0e23\u0e4c\u0e43\u0e2b\u0e0d\u0e48\u0e40\u0e1e\u0e23\u0e34\u0e48\u0e21\u0e23\u0e31\u0e48\u0e27",
+    order_info: "\u0e02\u0e2d\u0e07\u0e40\u0e21\u0e25\u0e2a\u0e32\u0e0a\u0e2a\u0e32\u0e23\u0e23\u0e49\u0e32",
+    product_label: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a:",
+    price_label: "\u0e23\u0e32\u0e22\u0e32:",
+    date_label: "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48:",
+    support_title: "\u0e40\u0e21\u0e37\u0e2d\u0e1b\u0e32\u0e22?",
+    support_refund: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27 \u0e44\u0e21\u0e48\u0e2d\u0e23\u0e4c\u0e21\u0e24\u0e38\u0e19",
+    social_proof: "\u0e25\u0e39\u0e01\u0e01\u0e32\u0e23 Ai Factory \u0e44\u0e37\u0e22\u0e44\u0e43\u0e2b\u0e49\u0e40\u0e23\u0e34\u0e48\u0e21",
+    cross_sell_title: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e35\u0e48\u0e25\u0e39\u0e01\u0e01\u0e32\u0e23\u0e40\u0e25\u0e34\u0e22\u0e2b\u0e2d\u0e22",
+    all_products_link: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e2d\u0e37\u0e2d\u0e44\u0e25\u0e49\u0e27 \u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 \u2192",
+    footer_all_products: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e2d\u0e37\u0e2d\u0e44\u0e25\u0e49\u0e27 \u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+    receipt_hint: "\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e15\u0e30\u0e14\u0e1a\u0e23\u0e32\u0e23\u0e31\u0e15\u0e4c? \u0e2a\u0e33\u0e2d\u0e35\u0e40\u0e21\u0e25\u0e32\u0e21\u0e32\u0e22\u0e17\u0e35\u0e48",
+    refund_7days: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27"
+  },
+  en: {
+    nav_products: "Products",
+    hero_title: "Ai Factory \u2014 AI Tools for Freelancers & Students",
+    hero_subtitle: "10 ready-to-use tools, starting at \u0ba4149",
+    hero_cta: "View All Products",
+    product_buy: "Buy Now",
+    footer_products: "Products",
+    footer_contact: "Contact",
+    footer_privacy: "Privacy Policy",
+    footer_copyright: "\u00a9 2026 Ai Factory. All rights reserved.",
+    problems_title: "Having this problem?",
+    solution_helps: "Here\u2019s how we help",
+    included_title: "What\u2019s Included",
+    permanent_use: "Lifetime access",
+    lifetime: "Lifetime access",
+    refund7: "7-day refund",
+    secure_payment: "Secure payment via Stripe",
+    cta_buy_now: "Buy Now",
+    faq_title: "Frequently Asked Questions",
+    final_cta_title: "Ready to Start?",
+    mobile_buy: "Buy \u0ba4 %PRICE% \u2192",
+    thanks_title: "Thank you!",
+    download_title: "Your Download",
+    next_steps: "Next Steps",
+    step1_download: "Download from the link above",
+    step2_follow: "Open and follow the instructions",
+    step3_support: "Need help? Contact us",
+    like_share: "Love it? Share with friends",
+    order_info: "Order Information",
+    product_label: "Product:",
+    price_label: "Price:",
+    date_label: "Date:",
+    support_title: "Need help?",
+    support_refund: "7-day money-back guarantee, no questions asked",
+    social_proof: "1,200+ Ai Factory customers trust us",
+    cross_sell_title: "Popular products",
+    all_products_link: "View All Products \u2192",
+    footer_all_products: "View All Products",
+    receipt_hint: "Need a receipt? Send us an email",
+    refund_7days: "7-day refund"
+  }
+};
+</script>
+<style>
+.lang-toggle{background:none;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:16px;transition:all .3s;display:flex;align-items:center;gap:4px;position:fixed;top:16px;right:16px;z-index:9999;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px)}.lang-toggle:hover{background:#f1f5f9;border-color:#6366f1}
+</style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+<button id="theme-toggle" class="fixed top-4 right-4 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur border border-slate-200 dark:border-slate-600 rounded-full p-2 shadow-lg hover:scale-110 transition-all duration-300" aria-label="Toggle dark mode" style="position:fixed;top:16px;right:16px;z-index:9999;">
+  <svg class="sun-icon w-5 h-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="moon-icon w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+  
+<button id="lang-toggle" class="lang-toggle" aria-label="Switch language">
+      <span class="lang-th">TH</span>
+      <span class="lang-en" style="display:none"></span>
+    </button>
+
+<!-- Sticky CTA bar (mobile) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-slate-800 border-t-2 border-purple-600 p-3 shadow-2xl dark:border-indigo-500">
+    <a href="#buy" class="block text-center bg-purple-600 text-white font-bold py-3 rounded-xl">ซื้อ <span data-i18n="mobile_buy" data-price="199">ซื้อ 199 บาท →</span></a>
+  </div>
+
+  <!-- Hero -->
+  <section class="gradient-hero text-white py-20 md:py-32 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="inline-block bg-white/20 backdrop-blur text-sm font-semibold uppercase tracking-wider px-4 py-2 rounded-full mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg> สำหรับนักศึกษา/นักเรียน</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">ใช้ Obsidian จริงใน 10 นาที — ไม่ต้อง setup เอง</h1>
+      <p class="text-xl md:text-2xl opacity-95 mb-10 max-w-2xl mx-auto">Template ครบ Daily Note, Exam Prep, Project Tracker สำหรับนักศึกษา</p>
+      <a href="#buy" id="buy" class="inline-block bg-white text-purple-700 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ <span data-i18n="mobile_buy" data-price="199">ซื้อ 199 บาท →</span></a>
+      <p class="text-sm opacity-90 mt-6"><span data-i18n="permanent_use"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ดาวน์โหลดทันที</span> · <span data-i18n="lifetime"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ใช้ได้ตลอดชีพ</span> · <span data-i18n="refund7"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> คืนเงิน 7 วัน</span></p>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="py-16 md:py-24 px-4 bg-slate-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12"><span data-i18n="problems_title">คุณเจอปัญหานี้ไหม?</span></h2>
+      <div class="space-y-4">
+        <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-3xl flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-2 4-2 4 2 4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <p class="text-lg leading-relaxed">ดาวน์โหลด Obsidian แล้วไม่รู้จะเริ่มยังไง</p>
+        </div>
+        <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-3xl flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></span>
+          <p class="text-lg leading-relaxed">เห็น YouTube คนใช้สวย ๆ แต่ทำเองไม่ได้</p>
+        </div>
+        <div class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-3xl flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/><ellipse cx="12" cy="16" rx="3" ry="2" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+          <p class="text-lg leading-relaxed">จดงาน+สรุป+อ่านสอบ กระจัดกระจาย ไม่เคยอยู่ในที่เดียว</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Obsidian Starter Kit นักศึกษา</h2>
+      <p class="text-center text-slate-600 dark:text-slate-400 mb-12 text-lg">ช่วยคุณได้แบบนี้</p>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xl">1</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Template vault สำเร็จรูป เปิดใช้ได้ทันที</h3>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">5 template ครอบคลุมงานนักศึกษา: Daily, Project, Exam, Reading, Reflection</h3>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-xl">3</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">วิดีโอสอน 5 นาที ติดตั้ง step-by-step</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's inside -->
+  <section class="py-16 md:py-24 px-4 bg-slate-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12"><span data-i18n="included_title">สิ่งที่คุณได้รับ</span></h2>
+      <ul class="space-y-4">
+        <li class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-2xl text-green-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+          <div>
+            <h3 class="font-bold text-lg">Obsidian vault (.zip)</h3>
+            <p class="text-slate-600 dark:text-slate-400 mt-1">Template ครบทุกอย่าง import แล้วใช้ได้</p>
+          </div>
+        </li>
+        <li class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-2xl text-green-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+          <div>
+            <h3 class="font-bold text-lg">5 template สำเร็จรูป</h3>
+            <p class="text-slate-600 dark:text-slate-400 mt-1">Daily Note, Project, Exam Prep, Reading Note, Weekly Review</p>
+          </div>
+        </li>
+        <li class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-2xl text-green-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+          <div>
+            <h3 class="font-bold text-lg">วิดีโอสอน 5 นาที</h3>
+            <p class="text-slate-600 dark:text-slate-400 mt-1">วิธี import + ปรับแต่งให้เข้ากับตัวเอง</p>
+          </div>
+        </li>
+        <li class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm flex items-start gap-4 dark:border dark:border-slate-600">
+          <span class="text-2xl text-green-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+          <div>
+            <h3 class="font-bold text-lg">Bonus: Plugin list</h3>
+            <p class="text-slate-600 dark:text-slate-400 mt-1">Plugin ที่แนะนำ พร้อมวิธีติดตั้ง</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-md mx-auto">
+      <div class="bg-white dark:bg-slate-800 border-4 border-purple-600 rounded-3xl p-8 md:p-10 shadow-2xl dark:border-indigo-500 transition-colors duration-300">
+        <h3 class="text-2xl md:text-3xl font-bold text-center mb-2">Obsidian Starter Kit นักศึกษา</h3>
+        <p class="text-center text-slate-500 dark:text-slate-400 mb-8">Template vault พร้อมใช้ เปิด 10 นาทีจบ</p>
+        <div class="text-center mb-8">
+          <span class="text-6xl md:text-7xl font-extrabold text-purple-600">199</span>
+          <span class="text-2xl text-slate-500 dark:text-slate-400"> บาท</span>
+        </div>
+        <ul class="space-y-3 mb-8 text-slate-700 dark:text-slate-300">
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> Obsidian vault (.zip)</li>
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> 5 template สำเร็จรูป</li>
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> วิดีโอสอน 5 นาที</li>
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> Bonus: Plugin list</li>
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> ใช้ได้ตลอดชีพ</li>
+          <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> คืนเงิน 7 วัน</li>
+        </ul>
+        <a href="https://buy.stripe.com/6oUdR17bc1HX4yk2UY5EY01" class="block text-center bg-purple-600 text-white font-bold text-lg py-5 rounded-2xl hover:bg-purple-700 transition shadow-lg"><span data-i18n="cta_buy_now">ซื้อเลย</span></a>
+        <p class="text-center text-sm text-slate-500 dark:text-slate-400 mt-4"><span data-i18n="secure_payment">ชำระเงินปลอดภัยผ่าน Stripe</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-24 px-4 bg-slate-50 dark:bg-slate-800">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12"><span data-i18n="faq_title">คำถามที่พบบ่อย</span></h2>
+      <div class="space-y-3">
+        <details class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm dark:border dark:border-slate-600">
+          <summary class="font-bold cursor-pointer text-lg">Obsidian ฟรีไหม?</summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">ฟรีสำหรับใช้ส่วนตัว — vault นี้ใช้ได้กับ Obsidian free version</p>
+        </details>
+        <details class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm dark:border dark:border-slate-600">
+          <summary class="font-bold cursor-pointer text-lg">ใช้กับมือถือได้ไหม?</summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">ได้ — sync ผ่าน Obsidian Sync (เสียเงิน 4 USD/mo) หรือใช้ iCloud/Google Drive ฟรี</p>
+        </details>
+        <details class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm dark:border dark:border-slate-600">
+          <summary class="font-bold cursor-pointer text-lg">ต้องเก่ง Markdown ไหม?</summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">ไม่ต้อง — template ใช้แค่ markdown พื้นฐาน</p>
+        </details>
+        <details class="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-sm dark:border dark:border-slate-600">
+          <summary class="font-bold cursor-pointer text-lg">คืนเงินได้ไหม?</summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">ได้ 7 วัน ไม่ถามเหตุผล</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="gradient-final text-white py-20 md:py-32 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-6"><span data-i18n="final_cta_title">พร้อมเริ่มแล้ว?</span></h2>
+      <p class="text-xl mb-10 opacity-95">เลิกเสียเวลา setup — เริ่มจดความรู้ตั้งแต่วันนี้</p>
+      <a href="https://buy.stripe.com/6oUdR17bc1HX4yk2UY5EY01" class="inline-block bg-white text-pink-600 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ <span data-i18n="mobile_buy" data-price="199">ซื้อ 199 บาท →</span></a>
+      <p class="text-sm opacity-90 mt-6"><span data-i18n="permanent_use"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ดาวน์โหลดทันที</span> · <span data-i18n="lifetime"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ใช้ได้ตลอดชีพ</span> · <span data-i18n="refund7"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> คืนเงิน 7 วัน</span></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-4 bg-slate-900 dark:bg-black text-slate-400 dark:text-slate-500 text-center text-sm transition-colors duration-300">
+    <p class="mb-2"><span data-i18n="footer_copyright">© 2026 Ai Factory</span></p>
+    <p>
+      <a href="mailto:support@aifactory.co" class="underline hover:text-white">support@aifactory.co</a>
+      · <span data-i18n="refund_7days">นโยบายคืนเงิน 7 วัน</span>
+      · <a href="/terms" class="underline hover:text-white" data-i18n="footer_privacy">ข้อกำหนดการใช้งาน</a>
+    </p>
+  </footer>
+
+
+<script>
+  (function() {
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    function updateIcon() {
+      const isDark = html.classList.contains('dark');
+      const sun = toggle.querySelector('.sun-icon');
+      const moon = toggle.querySelector('.moon-icon');
+      if (sun) sun.style.display = isDark ? 'none' : 'block';
+      if (moon) moon.style.display = isDark ? 'block' : 'none';
+    }
+    
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      updateIcon();
+    });
+    
+    updateIcon();
+  })();
+</script>
+
+<script>
+let currentLang=localStorage.getItem('lang')||'th';
+function t(key){return translations[currentLang][key]||translations['th'][key]||key}
+function applyLanguage(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    const price=el.getAttribute('data-price');
+    if(price){el.textContent=t(key).replace('%PRICE%',price)}
+    else{el.textContent=t(key)}
+  });
+  const thSpans=document.querySelectorAll('.lang-th');
+  const enSpans=document.querySelectorAll('.lang-en');
+  thSpans.forEach(s=>{s.style.display=currentLang==='th'?'inline':'none'});
+  enSpans.forEach(s=>{s.style.display=currentLang==='en'?'inline':'none'});
+  document.documentElement.lang=currentLang;
+}
+document.addEventListener('DOMContentLoaded',function(){
+  const btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',()=>{
+    currentLang=currentLang==='th'?'en':'th';
+    localStorage.setItem('lang',currentLang);
+    applyLanguage();
+  })}
+  applyLanguage();
+});
+</script>
+</body>
+</html>

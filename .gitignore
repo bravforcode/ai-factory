@@ -1,0 +1,51 @@
+# =============================================================================
+# .gitignore for sales_pages/
+# =============================================================================
+
+# Secrets — NEVER commit
+.env
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+stripe-links.json         # contains real payment links — keep local only
+deploy-*.log              # may contain API responses
+whsec_*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Vercel
+.vercel/
+.vercelignore
+
+# Node (if you add a build step later)
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnp.*
+
+# Python (generator scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temp
+tmp/
+temp/
+*.tmp
+*.bak
+
+.vercel

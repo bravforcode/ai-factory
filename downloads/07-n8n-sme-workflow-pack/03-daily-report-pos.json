@@ -1,0 +1,185 @@
+{
+  "name": "03 - Daily Report POS to Email & Slack",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000001",
+      "name": "Daily 8am Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $env.POS_API_URL }}/v1/sales?date={{ $now.format('YYYY-MM-DD') }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.POS_API_KEY }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000002",
+      "name": "Fetch POS Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aggregate sales data\nconst sales = items[0].json.transactions || [];\nconst totalRevenue = sales.reduce((sum, t) => sum + t.amount, 0);\nconst orderCount = sales.length;\nconst avgOrder = orderCount > 0 ? totalRevenue / orderCount : 0;\nconst topItems = {};\nsales.forEach(t => {\n  (t.items || []).forEach(i => {\n    topItems[i.name] = (topItems[i.name] || 0) + (i.qty || 1);\n  });\n});\nconst sorted = Object.entries(topItems).sort((a, b) => b[1] - a[1]).slice(0, 5);\nreturn [{\n  json: {\n    date: new Date().toISOString().split('T')[0],\n    totalRevenue,\n    orderCount,\n    avgOrder,\n    topItems: sorted\n  }\n}];"
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000003",
+      "name": "Aggregate Sales",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "operation": "message",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "messages": {
+          "messageValues": [
+            {
+              "role": "system",
+              "content": "คุณเป็น AI วิเคราะห์ยอดขายร้านอาหารไทย\nรับข้อมูล JSON ของยอดขายวันนี้ แล้วสร้างสรุปภาษาไทย (3-5 bullet points):\n1. ยอดขายรวม + เปรียบเทียบเมื่อวาน (ถ้ามีข้อมูล)\n2. Top 3 เมนูขายดี\n3. ช่วงเวลาที่ขายดีที่สุด (ถ้ามีข้อมูล)\n4. Insight / คำแนะนำ 1-2 ข้อ\n5. สัญญาณเตือน (ถ้ายอดผิดปกติ)\n\nใช้ภาษาเป็นกันเอง เหมือนคุยกับเจ้าของร้าน"
+            },
+            {
+              "role": "user",
+              "content": "=ข้อมูลยอดขาย: {{ JSON.stringify($json) }}"
+            }
+          ]
+        }
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000004",
+      "name": "AI Summary Thai",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "report@yourcompany.com",
+        "toEmail": "={{ $env.OWNER_EMAIL }}",
+        "subject": "=📊 รายงานยอดขายวันที่ {{ $now.format('DD/MM/YYYY') }}",
+        "html": "=<h2>สรุปยอดขายประจำวัน</h2>\n<p><b>ยอดรวม:</b> {{ $node['Aggregate Sales'].json.totalRevenue }} บาท</p>\n<p><b>จำนวนออเดอร์:</b> {{ $node['Aggregate Sales'].json.orderCount }}</p>\n<hr>\n<pre>{{ $json.choices[0].message.content }}</pre>",
+        "options": {}
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000005",
+      "name": "Send Email Report",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1120, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.SLACK_WEBHOOK_URL }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"channel\": \"#daily-report\",\n  \"blocks\": [\n    {\n      \"type\": \"header\",\n      \"text\": {\n        \"type\": \"plain_text\",\n        \"text\": \"📊 รายงานยอดขายวันที่ {{ $now.format('DD/MM/YYYY') }}\"\n      }\n    },\n    {\n      \"type\": \"section\",\n      \"fields\": [\n        {\"type\": \"mrkdwn\", \"text\": \"*ยอดรวม:*\\n{{ $node['Aggregate Sales'].json.totalRevenue }} บาท\"},\n        {\"type\": \"mrkdwn\", \"text\": \"*ออเดอร์:*\\n{{ $node['Aggregate Sales'].json.orderCount }}\"}\n      ]\n    },\n    {\n      \"type\": \"section\",\n      \"text\": {\n        \"type\": \"mrkdwn\",\n        \"text\": \"{{ $json.choices[0].message.content }}\"\n      }\n    }\n  ]\n}"
+      },
+      "id": "f3a2b3c4-0003-4000-8000-000000000006",
+      "name": "Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1120, 400]
+    }
+  ],
+  "connections": {
+    "Daily 8am Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch POS Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch POS Data": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Sales",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Sales": {
+      "main": [
+        [
+          {
+            "node": "AI Summary Thai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Summary Thai": {
+      "main": [
+        [
+          {
+            "node": "Send Email Report",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Post to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "daily-report",
+      "id": "tag-1"
+    }
+  ],
+  "active": false,
+  "versionId": "1.0"
+}

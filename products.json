@@ -1,0 +1,576 @@
+﻿{
+  "products": [
+    {
+      "slug": "01-prompt-pack-th",
+      "name_th": "AI Prompt Pack ภาษาไทย",
+      "name_en": "Thai AI Prompt Pack",
+      "tagline": "50 prompt พร้อมใช้ สำหรับงานออฟฟิศ",
+      "badge": "🔥 ขายดี #1 — ใช้ได้กับ GPT Claude Gemini",
+      "price_thb": 299,
+      "hero_headline_th": "เขียนอีเมล/สรุปประชุม/แปลภาษา ให้ AI ทำแทนใน 30 วิ",
+      "hero_subhead": "50 prompt ภาษาไทย ทดสอบกับ ChatGPT, Claude, Gemini แล้ว ใช้ได้จริง",
+      "problems": [
+        "เขียนอีเมลลูกค้า 1 ฉบับ ใช้เวลา 30 นาที+",
+        "สรุปประชุม 1 ชั่วโมง ต้องอ่านซ้ำ 3 รอบ",
+        "เรียน prompt engineering แล้วยังงง ลองผิดลองถูกเอง"
+      ],
+      "solutions": [
+        "Copy prompt จาก Notion ไปวาง ChatGPT ได้เลย",
+        "6 หมวดครอบคลุมงานออฟฟิศ: อีเมล รายงาน แปล TOR ประชุม โพสต์",
+        "ทดสอบกับ GPT-4 Claude Gemini แล้ว — ใช้ได้หมด"
+      ],
+      "included": [
+        {
+          "title": "Notion template 50 prompt",
+          "desc": "แบ่งหมวด 6 หมวด ค้นหาง่าย copy ได้เลย"
+        },
+        {
+          "title": "PDF backup",
+          "desc": "สำหรับคนที่ไม่ใช้ Notion"
+        },
+        {
+          "title": "วิดีโอสอน 5 นาที",
+          "desc": "วิธีปรับ prompt ให้เข้ากับงานตัวเอง"
+        },
+        {
+          "title": "Bonus 10 prompt EN",
+          "desc": "สำหรับงาน international"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ใช้กับ AI ตัวไหนได้บ้าง?",
+          "a": "ChatGPT (ทุก version), Claude, Gemini, Mistral — เขียน prompt แบบ model-agnostic"
+        },
+        {
+          "q": "ต้องเก่ง AI ไหม?",
+          "a": "ไม่ต้อง — copy prompt ไปวาง แก้คำนิดเดียวก็ใช้ได้"
+        },
+        {
+          "q": "ได้ของทันทีไหม?",
+          "a": "ได้เลยหลังจ่ายเงิน ลิงก์ดาวน์โหลดส่ง email อัตโนมัติ"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล — ส่งอีเมลมาคืนได้เต็มจำนวน"
+        }
+      ],
+      "final_cta": "หยุดเสียเวลาเขียนเอง — ให้ AI ช่วยตั้งแต่วันนี้"
+    },
+    {
+      "slug": "02-obsidian-student-kit",
+      "name_th": "Obsidian Starter Kit นักศึกษา",
+      "name_en": "Obsidian Student Starter Kit",
+      "tagline": "Template vault พร้อมใช้ เปิด 10 นาทีจบ",
+      "badge": "🎓 สำหรับนักศึกษา/นักเรียน",
+      "price_thb": 199,
+      "hero_headline_th": "ใช้ Obsidian จริงใน 10 นาที — ไม่ต้อง setup เอง",
+      "hero_subhead": "Template ครบ Daily Note, Exam Prep, Project Tracker สำหรับนักศึกษา",
+      "problems": [
+        "ดาวน์โหลด Obsidian แล้วไม่รู้จะเริ่มยังไง",
+        "เห็น YouTube คนใช้สวย ๆ แต่ทำเองไม่ได้",
+        "จดงาน+สรุป+อ่านสอบ กระจัดกระจาย ไม่เคยอยู่ในที่เดียว"
+      ],
+      "solutions": [
+        "Template vault สำเร็จรูป เปิดใช้ได้ทันที",
+        "5 template ครอบคลุมงานนักศึกษา: Daily, Project, Exam, Reading, Reflection",
+        "วิดีโอสอน 5 นาที ติดตั้ง step-by-step"
+      ],
+      "included": [
+        {
+          "title": "Obsidian vault (.zip)",
+          "desc": "Template ครบทุกอย่าง import แล้วใช้ได้"
+        },
+        {
+          "title": "5 template สำเร็จรูป",
+          "desc": "Daily Note, Project, Exam Prep, Reading Note, Weekly Review"
+        },
+        {
+          "title": "วิดีโอสอน 5 นาที",
+          "desc": "วิธี import + ปรับแต่งให้เข้ากับตัวเอง"
+        },
+        {
+          "title": "Bonus: Plugin list",
+          "desc": "Plugin ที่แนะนำ พร้อมวิธีติดตั้ง"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Obsidian ฟรีไหม?",
+          "a": "ฟรีสำหรับใช้ส่วนตัว — vault นี้ใช้ได้กับ Obsidian free version"
+        },
+        {
+          "q": "ใช้กับมือถือได้ไหม?",
+          "a": "ได้ — sync ผ่าน Obsidian Sync (เสียเงิน 4 USD/mo) หรือใช้ iCloud/Google Drive ฟรี"
+        },
+        {
+          "q": "ต้องเก่ง Markdown ไหม?",
+          "a": "ไม่ต้อง — template ใช้แค่ markdown พื้นฐาน"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "เลิกเสียเวลา setup — เริ่มจดความรู้ตั้งแต่วันนี้"
+    },
+    {
+      "slug": "03-freelance-pricing-calculator",
+      "name_th": "Freelance Pricing Calculator (THB)",
+      "name_en": "Thai Freelance Pricing Calculator",
+      "tagline": "กดคำนวณ รู้ราคาที่ควรคิดใน 1 นาที",
+      "badge": "💰 หยุดคิดราคาถูกเกินไป",
+      "price_thb": 149,
+      "hero_headline_th": "คิดราคา freelance ไม่เป็น? กด Calculator แล้วรู้เลย",
+      "hero_subhead": "Google Sheet คำนวณ hourly/daily/project rate รวมภาษี+ประกันสังคม+วันหยุด",
+      "problems": [
+        "เสนอราคาถูกเกินไป เหนื่อยทั้งเดือนได้น้อย",
+        "ไม่รู้จะคิดราคายังไง กลัวลูกค้าไม่จ้าง",
+        "ลืมคิดค่าภาษี+ประกันสังคม+วันหยุด เงินไม่พอใช้"
+      ],
+      "solutions": [
+        "Google Sheet คำนวณ hourly rate แค่กรอกข้อมูล 5 ช่อง",
+        "คำนวณรวม ภาษี+ประกันสังคม+วันหยุด ได้ราคาที่ควรคิดจริง",
+        "มี 3 mode: hourly, daily, project — เลือกตามงาน"
+      ],
+      "included": [
+        {
+          "title": "Google Sheet Calculator",
+          "desc": "พร้อมสูตรคำนวณ แค่กรอกตัวเลข"
+        },
+        {
+          "title": "วิดีโอสอน 5 นาที",
+          "desc": "วิธีใช้ + วิธีต่อรองราคากับลูกค้า"
+        },
+        {
+          "title": "Bonus: Email template",
+          "desc": "ตัวอย่างอีเมลเสนอราคาแบบมืออาชีพ"
+        },
+        {
+          "title": "Bonus: Rate benchmarks",
+          "desc": "ตารางเปรียบเทียบราคาเฉลี่ยตาม skill (dev, design, writer)"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ใช้กับ Excel ได้ไหม?",
+          "a": "ได้ — Google Sheet export เป็น .xlsx ได้"
+        },
+        {
+          "q": "เหมาะกับงานประเภทไหน?",
+          "a": "Freelance ทุกประเภท — dev, design, writer, marketing, consultant"
+        },
+        {
+          "q": "ต้องเก่ง Excel ไหม?",
+          "a": "ไม่ต้อง — กรอกตัวเลขในช่องที่กำหนด สูตรคำนวณให้อัตโนมัติ"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดเสนอราคาถูก — เริ่มคิดราคาแบบมืออาชีพวันนี้"
+    },
+    {
+      "slug": "04-cold-email-template-pack",
+      "name_th": "Cold Email Template Pack TH/EN",
+      "name_en": "Cold Email Template Pack TH EN",
+      "tagline": "10 template ตอบกลับ 15%+ พร้อม follow-up sequence",
+      "badge": "📧 สำหรับ sales/B2B/freelance",
+      "price_thb": 399,
+      "hero_headline_th": "10 cold email ที่ตอบกลับ 15%+ — ใช้ได้ทั้ง TH/EN",
+      "hero_subhead": "5 TH + 5 EN template พร้อม subject line A/B และ follow-up 3 ฉบับ",
+      "problems": [
+        "ส่ง cold email 100 ฉบับ ได้ตอบกลับ 1-2 ฉบับ",
+        "ไม่รู้จะเขียน subject line ยังไงไม่ให้ตกสแปม",
+        "ลูกค้าไม่ตอบ ก็ไม่รู้จะ follow-up ยังไง"
+      ],
+      "solutions": [
+        "10 template ที่ทดสอบแล้ว reply rate 15%+",
+        "Subject line A/B variant ให้ทดสอบ",
+        "Follow-up sequence 3 ฉบับ ส่งวันที่ 3, 7, 14"
+      ],
+      "included": [
+        {
+          "title": "10 email template (5 TH + 5 EN)",
+          "desc": "สำหรับ outreach, follow-up, intro, demo request, partnership"
+        },
+        {
+          "title": "Subject line A/B",
+          "desc": "20 subject line variant ให้ทดสอบ"
+        },
+        {
+          "title": "Follow-up sequence 3 ฉบับ",
+          "desc": "ส่งวันที่ 3, 7, 14 — ไม่กดดัน ได้ผล"
+        },
+        {
+          "title": "Bonus: Personalization cheatsheet",
+          "desc": "วิธีเปลี่ยน template เป็นอีเมลเฉพาะเจาะจง"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ใช้กับเครื่องมือส่ง email ไหนได้?",
+          "a": "Copy-paste ใช้ได้กับทุกเครื่องมือ: Gmail, Outlook, HubSpot, Lemlist, Mailshake"
+        },
+        {
+          "q": "ส่งวันละกี่ฉบับถึงจะไม่ติดสแปม?",
+          "a": "แนะนำ 20-50 ฉบับ/วันต่อ domain — มี cheatsheet เรื่อง warm-up ให้"
+        },
+        {
+          "q": "ต้องมีลูกค้า list อยู่แล้วไหม?",
+          "a": "ต้อง — template เป็นแค่ตัวอื่น ส่วน list คุณต้องหาเอง"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "ส่ง cold email ที่ได้ผลจริง — เริ่มต้นวันนี้"
+    },
+    {
+      "slug": "05-ai-automation-workflow",
+      "name_th": "AI Automation Workflow Cheatsheet",
+      "name_en": "AI Automation Workflow Cheatsheet",
+      "tagline": "10 workflow ให้ AI ทำงานแทน — ไม่ต้อง code",
+      "badge": "⚡ ประหยัด 5 ชม./สัปดาห์",
+      "price_thb": 499,
+      "hero_headline_th": "10 workflow ที่ให้ AI ทำงานแทนคุณ — ไม่ต้อง code",
+      "hero_subhead": "ChatGPT + Sheets + Gmail + LINE ใช้ได้กับงานออฟฟิศและ SME",
+      "problems": [
+        "เสียเวลา 5 ชม./สัปดาห์ กับงานซ้ำ ๆ",
+        "อยาก automate แต่ไม่รู้ code จ้าง dev แพง",
+        "ใช้ ChatGPT แต่ก็ยังต้องทำเองหลายขั้นตอน"
+      ],
+      "solutions": [
+        "10 workflow สำเร็จรูป copy ไปใช้ได้เลย",
+        "ChatGPT + Google Sheets + Gmail + LINE — ไม่ต้องติดตั้งอะไรเพิ่ม",
+        "Screen recording สอนทีละ step ตั้งแต่ต้นจนจบ"
+      ],
+      "included": [
+        {
+          "title": "10 workflow (Notion + PDF)",
+          "desc": "พร้อม prompt, setup, step-by-step"
+        },
+        {
+          "title": "Screen recording 10 คลิป",
+          "desc": "สอนตั้งค่า workflow ทีละขั้น รวม 90 นาที"
+        },
+        {
+          "title": "Prompt template",
+          "desc": "Copy ไปใช้กับ ChatGPT ได้เลย"
+        },
+        {
+          "title": "Bonus: Workflow #11 (N8N version)",
+          "desc": "สำหรับคนอยากขยายไป automation แบบจริงจัง"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ต้องมี ChatGPT Plus ไหม?",
+          "a": "ไม่จำเป็น — workflow ส่วนใหญ่ใช้ได้กับ ChatGPT free แต่ Plus จะเร็วกว่า"
+        },
+        {
+          "q": "ต้องเก่ง AI ไหม?",
+          "a": "ไม่ต้อง — copy prompt + ทำตามวิดีโอได้เลย"
+        },
+        {
+          "q": "ใช้กับ Gemini/Claude ได้ไหม?",
+          "a": "ได้ — prompt เขียนแบบ model-agnostic"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "คืนเวลา 5 ชม./สัปดาห์ — ให้ AI ทำงานแทน"
+    },
+    {
+      "slug": "06-cv-international-template",
+      "name_th": "CV/Resume Template สมัครงานต่างประเทศ",
+      "name_en": "International CV Resume Template",
+      "tagline": "CV ที่ recruiter ต่างประเทศอ่านจบใน 30 วิ",
+      "badge": "🌍 สำหรับคนไทยสมัครงานต่างประเทศ",
+      "price_thb": 199,
+      "hero_headline_th": "CV ที่ recruiter ต่างประเทศอ่านจบใน 30 วิ",
+      "hero_subhead": "3 template (Tech, Marketing, Designer) + cover letter ผ่าน ATS",
+      "problems": [
+        "ส่ง CV ไป 50 ที่ ไม่ได้ interview สักที่",
+        "CV format ไทย ใช้กับบริษัทต่างประเทศไม่ได้",
+        "ไม่รู้ว่า ATS คืออะไร ทำไม CV ตกรอบ"
+      ],
+      "solutions": [
+        "3 template ตามสายอาชีพ: Tech, Marketing, Designer",
+        "ATS-friendly format ผ่านระบบกรองอัตโนมัติ",
+        "Cover letter template + คำแนะนำเขียนอย่างไรให้โดดเด่น"
+      ],
+      "included": [
+        {
+          "title": "3 CV template (Google Doc + Word)",
+          "desc": "Tech, Marketing, Designer — แก้ไขง่าย copy ไปใช้ได้"
+        },
+        {
+          "title": "Cover letter template",
+          "desc": "Template + ตัวอย่างจริง 3 แบบ"
+        },
+        {
+          "title": "ATS guide (PDF)",
+          "desc": "อธิบายว่า ATS คืออะไร ทำไม CV ตกรอบ วิธีผ่าน"
+        },
+        {
+          "title": "Bonus: LinkedIn summary template",
+          "desc": "เขียน LinkedIn summary ให้ recruiter สนใจ"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ใช้กับ ATS ได้จริงไหม?",
+          "a": "ได้ — template ผ่านการทดสอบกับ Workday, Greenhouse, Lever (ATS ที่บริษัทใหญ่ใช้)"
+        },
+        {
+          "q": "ภาษาอังกฤษต้องดีไหม?",
+          "a": "ไม่ต้อง — template ใช้ประโยคสั้น ๆ กรอกข้อมูลแค่ชื่อ/ประสบการณ์"
+        },
+        {
+          "q": "ใช้ได้กับทุกประเทศไหม?",
+          "a": "ได้ — format เป็นมาตรฐาน US/EU/UK/SG/AU"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดส่ง CV ที่ไม่มีใครอ่าน — ส่ง CV ที่ได้ interview"
+    },
+    {
+      "slug": "07-n8n-sme-workflow-pack",
+      "name_th": "N8N Workflow Pack SME",
+      "name_en": "N8N Workflow Pack for Thai SME",
+      "tagline": "5 workflow n8n import แล้วใช้ได้เลย",
+      "badge": "🤖 แทน VA 15,000 บาท/เดือน",
+      "price_thb": 799,
+      "hero_headline_th": "5 workflow n8n สำเร็จรูป — import แล้วใช้ได้เลย",
+      "hero_subhead": "Lead capture, Invoice, LINE OA, Follow-up, CRM sync",
+      "problems": [
+        "SME ต้องจ้าง VA 15,000 บาท/เดือน ทำงานซ้ำ ๆ",
+        "อยาก automate แต่ dev คิดค่าใช้จ่ายหลักแสน",
+        "เห็นคนพูดถึง n8n แต่ setup ยาก เริ่มไม่ถูก"
+      ],
+      "solutions": [
+        "5 workflow สำเร็จรูป import JSON แล้วใช้ได้",
+        "Lead capture / Invoice / LINE OA / Follow-up / CRM sync",
+        "วิดีโอสอน import + customize ทีละ step"
+      ],
+      "included": [
+        {
+          "title": "5 n8n workflow (JSON)",
+          "desc": "Import เข้า n8n ได้เลย พร้อมใช้"
+        },
+        {
+          "title": "วิดีโอ setup 5 คลิป",
+          "desc": "สอน import + ปรับ credential + customize"
+        },
+        {
+          "title": "Workflow diagram",
+          "desc": "Diagram อธิบาย flow แต่ละ workflow"
+        },
+        {
+          "title": "Bonus: Slack alert workflow",
+          "desc": "แจ้งเตือนเข้า Slack เมื่อมี lead ใหม่"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "n8n ฟรีไหม?",
+          "a": "มี free self-hosted (Docker) และ cloud plan เริ่มต้น 20 EUR/mo — workflow ใช้ได้กับทั้ง 2 แบบ"
+        },
+        {
+          "q": "ต้องมี server ไหม?",
+          "a": "ถ้าใช้ self-hosted ต้องมี (VPS เริ่มต้น 300-500 บาท/เดือน)"
+        },
+        {
+          "q": "ปรับแต่ง workflow เองได้ไหม?",
+          "a": "ได้ — JSON เปิดดูได้ ปรับ logic ตามต้องการ มีวิดีโอสอน"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดจ้าง VA ทำงานซ้ำ — ให้ n8n ทำแทน"
+    },
+    {
+      "slug": "08-content-calendar-90d",
+      "name_th": "Content Calendar 90 วัน",
+      "name_en": "Thai Content Calendar 90 Days",
+      "tagline": "270 caption 3 platform ไม่ต้องคิดเอง",
+      "badge": "📅 สำหรับ content creator / SME",
+      "price_thb": 599,
+      "hero_headline_th": "ไอเดียโพสต์ 270 ข้อความ × 3 platform × 90 วัน",
+      "hero_subhead": "Notion template พร้อม caption, hashtag, scheduling — เปิดแล้วโพสต์ได้เลย",
+      "problems": [
+        "เจ้าของแบรนด์เล็กโพสต์ไม่เป็น ไอเดียหมด",
+        "นั่งคิด caption 1 ชั่วโมง ได้ 3 ข้อความ",
+        "โพสต์ไม่สม่ำเสมอ engagement ตก"
+      ],
+      "solutions": [
+        "270 caption สำเร็จรูป 3 platform (FB, IG, LinkedIn)",
+        "Hashtag pack แยกตามหมวด",
+        "Scheduling template ใส่วันที่+เวลาได้เลย"
+      ],
+      "included": [
+        {
+          "title": "Notion template (270 caption)",
+          "desc": "แยกตาม platform แยกตามหมวด ค้นหาง่าย"
+        },
+        {
+          "title": "Hashtag pack (5 หมวด)",
+          "desc": "Lifestyle, Tech, Food, Travel, Business — copy ไปใช้"
+        },
+        {
+          "title": "Scheduling template",
+          "desc": "วางแผนโพสต์ล่วงหน้า 90 วัน"
+        },
+        {
+          "title": "Bonus: Best time to post guide",
+          "desc": "เวลาที่คนไทย online มากที่สุด แยกตาม platform"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "caption ภาษาอะไร?",
+          "a": "ภาษาไทยเป็นหลัก + บางหมวดมี EN สำหรับ LinkedIn"
+        },
+        {
+          "q": "ใช้ได้กับธุรกิจแบบไหน?",
+          "a": "Personal brand, SME, content creator, freelancer, coach"
+        },
+        {
+          "q": "แก้ caption เองได้ไหม?",
+          "a": "ได้ — Notion แก้ได้ตามต้องการ ใช้เป็น template"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดนั่งคิด caption — มี 270 ข้อความพร้อมใช้"
+    },
+    {
+      "slug": "09-finance-tracker-thb",
+      "name_th": "Personal Finance Tracker (THB)",
+      "name_en": "Personal Finance Tracker THB",
+      "tagline": "Google Sheet วางแผนการเงิน รองรับภาษีไทย",
+      "badge": "💰 ขายดี #2 — เหมาะ freelance + พนักงาน",
+      "price_thb": 149,
+      "hero_headline_th": "วางแผนการเงินใน Google Sheet — รองรับภาษีไทย",
+      "hero_subhead": "หัก ณ ที่จ่าย, ประกันสังคม, ภาษีรายได้, เงินออม+emergency fund",
+      "problems": [
+        "คนไทย 80% ไม่เคย track การเงิน ใช้เงินเกินตัว",
+        "template ฝรั่งใช้ยาก ไม่รองรับภาษีไทย",
+        "สิ้นเดือนแล้วเงินเหลือน้อย ไม่รู้เงินไปไหน"
+      ],
+      "solutions": [
+        "Google Sheet พร้อมสูตร กรอกรายรับ-รายจ่าย",
+        "คำนวณภาษี+ประกันสังคมอัตโนมัติ",
+        "มี Emergency Fund tracker + Savings goal"
+      ],
+      "included": [
+        {
+          "title": "Google Sheet tracker",
+          "desc": "รายรับ-รายจ่าย, ภาษี, ประกันสังคม, เงินออม"
+        },
+        {
+          "title": "วิดีโอสอน 5 นาที",
+          "desc": "วิธีใช้ + วิธีตั้ง budget"
+        },
+        {
+          "title": "Bonus: Monthly review template",
+          "desc": "ทบทวนการเงินต้นเดือน"
+        },
+        {
+          "title": "Bonus: Debt payoff calculator",
+          "desc": "คำนวณว่าจะปิดหนี้ได้ในกี่เดือน"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ใช้กับ Excel ได้ไหม?",
+          "a": "ได้ — Google Sheet export .xlsx ได้"
+        },
+        {
+          "q": "เหมาะกับใคร?",
+          "a": "ทั้งพนักงานประจำและ freelance — มี mode ให้เลือก"
+        },
+        {
+          "q": "ต้องเก่ง Excel ไหม?",
+          "a": "ไม่ต้อง — กรอกแค่ตัวเลข สูตรคำนวณให้อัตโนมัติ"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดใช้เงินเกินตัว — เริ่ม track การเงินวันนี้"
+    },
+    {
+      "slug": "10-ai-agent-starter-github",
+      "name_th": "AI Agent Starter (GitHub)",
+      "name_en": "Open Source AI Agent Starter Python",
+      "tagline": "AI agent ที่ใช้งานได้จริง — fork แล้วรัน",
+      "badge": "🧑‍💻 สำหรับ developer / AI engineer",
+      "price_thb": 999,
+      "hero_headline_th": "AI agent ที่ใช้งานได้จริง — fork แล้วรัน",
+      "hero_subhead": "Python chat agent + tool calling + memory + Telegram interface",
+      "problems": [
+        "อ่าน LangChain docs 2 อาทิตย์แล้วยังไม่ได้ agent ที่รันได้",
+        "ของฟรีไม่มี memory, tool calling ไม่ work",
+        "OpenAI API เปลือง token เพราะ context โตเร็ว"
+      ],
+      "solutions": [
+        "Production-ready starter — clone แล้วรันได้ใน 1 ชม.",
+        "Tool calling + memory + Telegram interface ครบ",
+        "รองรับ OpenAI, Claude, Gemini — เปลี่ยน provider ได้"
+      ],
+      "included": [
+        {
+          "title": "GitHub repo access",
+          "desc": "Python code ครบ chat agent + tool + memory"
+        },
+        {
+          "title": "Docker compose",
+          "desc": "รันได้ทันที ไม่ต้อง setup Python env"
+        },
+        {
+          "title": "วิดีโอ walkthrough 30 นาที",
+          "desc": "อธิบาย architecture + วิธี extend"
+        },
+        {
+          "title": "Bonus: 3 tools สำเร็จรูป",
+          "desc": "Web search, File reader, Calculator — ใช้ได้เลย"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "ต้องเก่ง Python ไหม?",
+          "a": "ควรมีพื้นฐาน — ถ้าเคยเขียน Flask/FastAPI ใช้ได้สบาย"
+        },
+        {
+          "q": "ใช้ LLM ตัวไหนได้?",
+          "a": "OpenAI (GPT-4, GPT-4o-mini), Anthropic (Claude), Google (Gemini) — เปลี่ยนใน config"
+        },
+        {
+          "q": "License เป็นแบบไหน?",
+          "a": "MIT — ใช้เชิงพาณิชย์ได้ ขายต่อได้ แก้ไขได้"
+        },
+        {
+          "q": "คืนเงินได้ไหม?",
+          "a": "ได้ 7 วัน ไม่ถามเหตุผล"
+        }
+      ],
+      "final_cta": "หยุดอ่าน docs 2 อาทิตย์ — รัน AI agent ได้ใน 1 ชั่วโมง"
+    }
+  ],
+  "default_email": "support@aifactory.co",
+  "default_brand": "Ai Factory"
+}

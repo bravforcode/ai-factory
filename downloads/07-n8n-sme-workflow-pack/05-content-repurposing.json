@@ -1,0 +1,218 @@
+{
+  "name": "05 - Blog to 30 Social Posts",
+  "nodes": [
+    {
+      "parameters": {
+        "feedUrl": "={{ $env.BLOG_RSS_URL }}",
+        "options": {}
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000001",
+      "name": "RSS Feed Trigger",
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.link }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000002",
+      "name": "Fetch Full Article",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "message",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "messages": {
+          "messageValues": [
+            {
+              "role": "system",
+              "content": "คุณเป็น AI content repurposer มืออาชีพ\nรับบทความบล็อก 1 บทความ แล้วสร้าง 30 โพสต์ social media:\n- 10 Facebook posts (150-300 คำ, casual, มี CTA)\n- 10 Instagram captions (50-150 คำ, มี hashtag 5-10 ตัว)\n- 5 LinkedIn posts (100-200 คำ, professional)\n- 5 Twitter threads (5-7 tweets ต่อ thread, hook แรง)\n\nแต่ละโพสต์มี hook + body + CTA\nตอบเป็น JSON array 30 objects: [{\"platform\": \"facebook|instagram|linkedin|twitter\", \"content\": \"...\", \"hashtags\": []}]"
+            },
+            {
+              "role": "user",
+              "content": "=บทความ: {{ $json.data }}"
+            }
+          ]
+        },
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000003",
+      "name": "Generate 30 Posts",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse and split posts by platform\nconst allPosts = JSON.parse($input.first().json.choices[0].message.content);\nconst posts = allPosts.posts || allPosts;\nconst grouped = {\n  facebook: posts.filter(p => p.platform === 'facebook'),\n  instagram: posts.filter(p => p.platform === 'instagram'),\n  linkedin: posts.filter(p => p.platform === 'linkedin'),\n  twitter: posts.filter(p => p.platform === 'twitter')\n};\nconst result = [];\nfor (const [platform, items] of Object.entries(grouped)) {\n  for (const item of items) {\n    result.push({ json: { platform, content: item.content, hashtags: item.hashtags || [] } });\n  }\n}\nreturn result;"
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000004",
+      "name": "Split by Platform",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.AIRTABLE_BASE_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Content Calendar",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "platform": "={{ $json.platform }}",
+            "content": "={{ $json.content }}",
+            "hashtags": "={{ $json.hashtags.join(' ') }}",
+            "status": "draft",
+            "created_at": "={{ $now.toISO() }}"
+          }
+        }
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000005",
+      "name": "Save to Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 4,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.bufferapp.com/1/updates/create.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.BUFFER_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.content }}"
+            },
+            {
+              "name": "profile_ids[]",
+              "value": "={{ $env.BUFFER_FB_PROFILE_ID }}"
+            },
+            {
+              "name": "scheduled_at",
+              "value": "={{ $now.plus({ days: 1 }).toISO() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5a2b3c4-0005-4000-8000-000000000006",
+      "name": "Schedule to Buffer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1340, 300]
+    }
+  ],
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Full Article",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Full Article": {
+      "main": [
+        [
+          {
+            "node": "Generate 30 Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate 30 Posts": {
+      "main": [
+        [
+          {
+            "node": "Split by Platform",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split by Platform": {
+      "main": [
+        [
+          {
+            "node": "Save to Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to Airtable": {
+      "main": [
+        [
+          {
+            "node": "Schedule to Buffer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "content",
+      "id": "tag-1"
+    },
+    {
+      "name": "social-media",
+      "id": "tag-2"
+    }
+  ],
+  "active": false,
+  "versionId": "1.0"
+}

@@ -1,0 +1,28 @@
+# Runtime dependencies for AI Agent Starter
+# Install with: pip install -r requirements.txt
+
+# LLM Providers (install at least ONE)
+openai>=1.30.0
+anthropic>=0.30.0
+google-generativeai>=0.5.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Tools
+duckduckgo-search>=6.0.0
+sympy>=1.12.0
+
+# Optional: Web framework (for API deployment)
+flask>=3.0.0
+gunicorn>=21.2.0
+
+# Optional: Testing
+pytest>=8.0.0
+pytest-mock>=3.12.0
+
+# Optional: Performance
+cachetools>=5.3.0
+
+# Optional: Async
+aiohttp>=3.9.0

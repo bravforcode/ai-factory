@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ขอบคุณครับ! | Freelance Pricing Calculator (THB)</title>
+  <meta name="robots" content="noindex">
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+  }
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'IBM Plex Sans Thai', 'Inter', 'Sarabun', system-ui, sans-serif; }
+    .gradient-success { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+  </style>
+
+<script>
+  // Dark mode - load preference immediately to prevent flash
+  (function() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
+<style id="dark-mode-overrides">
+  /* Dark mode overrides for Tailwind classes */
+  .dark body { background-color: #0f172a !important; color: #f1f5f9 !important; }
+  .dark .bg-white { background-color: #1e293b !important; }
+  .dark .bg-slate-50 { background-color: #1e293b !important; }
+  .dark .bg-slate-900 { background-color: #020617 !important; }
+  .dark .text-slate-900 { color: #f1f5f9 !important; }
+  .dark .text-slate-700 { color: #e2e8f0 !important; }
+  .dark .text-slate-600 { color: #cbd5e1 !important; }
+  .dark .text-slate-500 { color: #94a3b8 !important; }
+  .dark .text-slate-400 { color: #64748b !important; }
+  .dark .border-slate-200 { border-color: #334155 !important; }
+  .dark .border-t-2 { border-color: #6366f1 !important; }
+  .dark details { background-color: #1e293b !important; }
+  .dark .bg-purple-100 { background-color: #312e81 !important; }
+  .dark .bg-gradient-to-r { background: linear-gradient(to right, #1e293b, #1e293b) !important; }
+  .dark .from-purple-50 { --tw-gradient-from: #1e293b !important; }
+  .dark .to-blue-50 { --tw-gradient-to: #1e293b !important; }
+  /* Fix gradient sections for dark mode */
+  .dark .gradient-hero, .dark .gradient-final, .dark .gradient-success { opacity: 0.9; }
+  /* Fix sticky CTA bar */
+  .dark .fixed.bottom-0 { background-color: #1e293b !important; border-color: #6366f1 !important; }
+</style>
+<script>
+const translations = {
+  th: {
+    nav_products: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a",
+    hero_title: "Ai Factory \u2014 \u0e40\u0e04\u0e23\u0e37\u0e2d\u0e02\u0e48\u0e32 AI \u0e2a\u0e23\u0e34\u0e10\u0e2a\u0e4c\u0e2a\u0e43\u0e2b\u0e0d\u0e48 Freelancer \u0e41\u0e25\u0e49\u0e27 \u0e19\u0e31\u0e01\u0e28\u0e34\u0e4a\u0e27\u0e01\u0e4c",
+    hero_subtitle: "10 \u0e40\u0e04\u0e23\u0e37\u0e2d\u0e02\u0e48\u0e32 AI \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21 \u0e23\u0e32\u0e22\u0e40\u0e15\u0e49\u0e19 \u0ba4149",
+    hero_cta: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+    product_buy: "\u0e0b\u0e37\u0e48\u0e2d\u0e44\u0e25\u0e49\u0e27",
+    footer_products: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a",
+    footer_contact: "\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e07\u0e40\u0e23\u0e34\u0e48\u0e21",
+    footer_privacy: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e41\u0e1b\u0e49\u0e25\u0e15\u0e4c\u0e2a\u0e38\u0e4c\u0e2a\u0e34\u0e49\u0e19",
+    footer_copyright: "\u00a9 2026 Ai Factory. \u0e2a\u0e31\u0e1a\u0e25\u0e34\u0e02\u0e2a\u0e34\u0e49\u0e19",
+    problems_title: "\u0e04\u0e38\u0e13\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e1b\u0e48\u0e32\u0e19\u0e35\u0e49\u0e44\u0e21\u0e49?",
+    solution_helps: "\u0e0a\u0e31\u0e14\u0e04\u0e38\u0e13\u0e44\u0e14\u0e49\u0e41\u0e1a\u0e19\u0e19\u0e35\u0e49",
+    included_title: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a",
+    permanent_use: "\u0e43\u0e0a\u0e49\u0e44\u0e14\u0e49\u0e17\u0e32\u0e07\u0e40\u0e0a\u0e35\u0e22\u0e27",
+    lifetime: "\u0e43\u0e0a\u0e49\u0e44\u0e14\u0e49\u0e17\u0e32\u0e07\u0e40\u0e0a\u0e35\u0e22\u0e27",
+    refund7: "\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27",
+    secure_payment: "\u0e0a\u0e32\u0e40\u0e22\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e1e\u0e2d\u0e23\u0e4c Stripe",
+    cta_buy_now: "\u0e0b\u0e37\u0e48\u0e2d\u0e44\u0e25\u0e49\u0e27",
+    faq_title: "\u0e02\u0e2d\u0e07\u0e19\u0e32\u0e22\u0e01\u0e32\u0e23\u0e17\u0e33\u0e1a\u0e23\u0e32\u0e07\u0e07",
+    final_cta_title: "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e40\u0e23\u0e34\u0e48\u0e21\u0e41\u0e25\u0e49\u0e27?",
+    mobile_buy: "\u0e0b\u0e37\u0e48\u0e2d \u0e23\u0e32\u0e22\u0e40\u0e15\u0e49\u0e19 \u2192",
+    thanks_title: "\u0e27\u0e30\u0e04\u0e31\u0e49\u0e27\u0e43\u0e0a!",
+    download_title: "\u0e14\u0e42\u0e14\u0e22\u0e44\u0e1f\u0e25\u0e4c\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13",
+    next_steps: "\u0e02\u0e31\u0e49\u0e19\u0e15\u0e49\u0e2d\u0e14\u0e42\u0e14\u0e22",
+    step1_download: "\u0e14\u0e42\u0e14\u0e22\u0e44\u0e1f\u0e25\u0e4c\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e14\u0e49\u0e27\u0e22",
+    step2_follow: "\u0e40\u0e1b\u0e34\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e41\u0e25\u0e49\u0e27\u0e41\u0e15\u0e30\u0e17\u0e33\u0e21\u0e31\u0e48\u0e19\u0e01\u0e32\u0e23\u0e32\u0e22\u0e32\u0e07",
+    step3_support: "\u0e2b\u0e32\u0e01\u0e44\u0e21\u0e49\u0e02\u0e2d\u0e07\u0e2b\u0e32\u0e01 \u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e07",
+    like_share: "\u0e02\u0e2d\u0e07\u0e44\u0e21\u0e49? \u0e41\u0e0a\u0e1a\u0e41\u0e0a\u0e23\u0e4c\u0e43\u0e2b\u0e0d\u0e48\u0e40\u0e1e\u0e23\u0e34\u0e48\u0e21\u0e23\u0e31\u0e48\u0e27",
+    order_info: "\u0e02\u0e2d\u0e07\u0e40\u0e21\u0e25\u0e2a\u0e32\u0e0a\u0e2a\u0e32\u0e23\u0e23\u0e49\u0e32",
+    product_label: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a:",
+    price_label: "\u0e23\u0e32\u0e22\u0e32:",
+    date_label: "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48:",
+    support_title: "\u0e40\u0e21\u0e37\u0e2d\u0e1b\u0e32\u0e22?",
+    support_refund: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27 \u0e44\u0e21\u0e48\u0e2d\u0e23\u0e4c\u0e21\u0e24\u0e38\u0e19",
+    social_proof: "\u0e25\u0e39\u0e01\u0e01\u0e32\u0e23 Ai Factory \u0e44\u0e37\u0e22\u0e44\u0e43\u0e2b\u0e49\u0e40\u0e23\u0e34\u0e48\u0e21",
+    cross_sell_title: "\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e17\u0e35\u0e48\u0e25\u0e39\u0e01\u0e01\u0e32\u0e23\u0e40\u0e25\u0e34\u0e22\u0e2b\u0e2d\u0e22",
+    all_products_link: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e2d\u0e37\u0e2d\u0e44\u0e25\u0e49\u0e27 \u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 \u2192",
+    footer_all_products: "\u0e14\u0e39\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e31\u0e1a\u0e2d\u0e37\u0e2d\u0e44\u0e25\u0e49\u0e27 \u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+    receipt_hint: "\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e15\u0e30\u0e14\u0e1a\u0e23\u0e32\u0e23\u0e31\u0e15\u0e4c? \u0e2a\u0e33\u0e2d\u0e35\u0e40\u0e21\u0e25\u0e32\u0e21\u0e32\u0e22\u0e17\u0e35\u0e48",
+    refund_7days: "\u0e19\u0e32\u0e42\u0e21\u0e07\u0e01\u0e32\u0e23\u0e04\u0e38\u0e13\u0e40\u0e22\u0e47\u0e19 7 \u0e27\u0e31\u0e27"
+  },
+  en: {
+    nav_products: "Products",
+    hero_title: "Ai Factory \u2014 AI Tools for Freelancers & Students",
+    hero_subtitle: "10 ready-to-use tools, starting at \u0ba4149",
+    hero_cta: "View All Products",
+    product_buy: "Buy Now",
+    footer_products: "Products",
+    footer_contact: "Contact",
+    footer_privacy: "Privacy Policy",
+    footer_copyright: "\u00a9 2026 Ai Factory. All rights reserved.",
+    problems_title: "Having this problem?",
+    solution_helps: "Here\u2019s how we help",
+    included_title: "What\u2019s Included",
+    permanent_use: "Lifetime access",
+    lifetime: "Lifetime access",
+    refund7: "7-day refund",
+    secure_payment: "Secure payment via Stripe",
+    cta_buy_now: "Buy Now",
+    faq_title: "Frequently Asked Questions",
+    final_cta_title: "Ready to Start?",
+    mobile_buy: "Buy \u0ba4 %PRICE% \u2192",
+    thanks_title: "Thank you!",
+    download_title: "Your Download",
+    next_steps: "Next Steps",
+    step1_download: "Download from the link above",
+    step2_follow: "Open and follow the instructions",
+    step3_support: "Need help? Contact us",
+    like_share: "Love it? Share with friends",
+    order_info: "Order Information",
+    product_label: "Product:",
+    price_label: "Price:",
+    date_label: "Date:",
+    support_title: "Need help?",
+    support_refund: "7-day money-back guarantee, no questions asked",
+    social_proof: "1,200+ Ai Factory customers trust us",
+    cross_sell_title: "Popular products",
+    all_products_link: "View All Products \u2192",
+    footer_all_products: "View All Products",
+    receipt_hint: "Need a receipt? Send us an email",
+    refund_7days: "7-day refund"
+  }
+};
+</script>
+<style>
+.lang-toggle{background:none;border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;cursor:pointer;font-size:16px;transition:all .3s;display:flex;align-items:center;gap:4px;position:fixed;top:16px;right:16px;z-index:9999;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px)}.lang-toggle:hover{background:#f1f5f9;border-color:#6366f1}
+</style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+<button id="theme-toggle" class="fixed top-4 right-4 z-50 bg-white/80 dark:bg-slate-800/80 backdrop-blur border border-slate-200 dark:border-slate-600 rounded-full p-2 shadow-lg hover:scale-110 transition-all duration-300" aria-label="Toggle dark mode" style="position:fixed;top:16px;right:16px;z-index:9999;">
+  <svg class="sun-icon w-5 h-5 text-amber-500" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="moon-icon w-5 h-5 text-indigo-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+  <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">
+      <span class="lang-th">TH</span>
+      <span class="lang-en" style="display:none"></span>
+    </button>
+
+  <!-- Success Hero -->
+  <section class="gradient-success text-white py-20 md:py-28 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="text-7xl mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6"><span data-i18n="thanks_title">ขอบคุณครับ!</span></h1>
+      <p class="text-xl md:text-2xl opacity-95">การชำระเงินสำเร็จแล้ว — Freelance Pricing Calculator (THB) พร้อมให้คุณดาวน์โหลด</p>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white dark:bg-slate-800 border-4 border-green-500 rounded-3xl p-8 md:p-10 shadow-2xl dark:border-green-400 transition-colors duration-300">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> ดาวน์โหลดของคุณ</h2>
+        <p class="text-center text-slate-500 dark:text-slate-400 mb-8">กดคำนวณ รู้ราคาที่ควรคิดใน 1 นาที</p>
+
+        <a href="https://drive.google.com/REPLACE_WITH_ACTUAL_DOWNLOAD_LINK_FOR_03-FREELANCE-PRICING-CALCULATOR" class="block text-center bg-green-500 text-white font-bold text-lg py-5 rounded-2xl hover:bg-green-600 transition shadow-lg mb-4">
+          ดาวน์โหลด Freelance Pricing Calculator (THB) →
+        </a>
+        <p class="text-center text-sm text-slate-500 mb-8">ลิงก์ดาวน์โหลดจะถูกส่งไปยังอีเมลของคุณด้วย (<span id="customer-email" class="text-slate-700 font-semibold">อีเมลของคุณ</span><script>try{var e=new URLSearchParams(location.search).get("email")||new URLSearchParams(location.search).get("customer_email")||"อีเมลของคุณ";document.getElementById("customer-email").textContent=e}catch(x){}</script>)</p>
+
+        <div class="border-t border-slate-200 dark:border-slate-600 pt-6">
+          <h3 class="font-bold mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> สิ่งที่คุณจะได้รับ:</h3>
+          <ul class="space-y-2 text-slate-700">
+            <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> Google Sheet Calculator</li>
+            <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> วิดีโอสอน 5 นาที</li>
+            <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> Bonus: Email template</li>
+            <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> Bonus: Rate benchmarks</li>
+            <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> ใช้ได้ตลอดชีพ</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Next steps -->
+      <div class="mt-12 bg-slate-50 rounded-2xl p-8">
+        <h3 class="text-xl font-bold mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M12 2.5s3.5 2.5 3.5 8.5c0 3-2 5-3.5 5s-3.5-2-3.5-5c0-6 3.5-8.5 3.5-8.5zM7 15c-1 0-3 1.5-3 4h4l-1-4zm10 0c1 0 3 1.5 3 4h-4l1-4z"/></svg> ขั้นตอนถัดไป</h3>
+        <ol class="space-y-3 text-slate-700">
+          <li class="flex gap-3"><span class="font-bold text-green-500">1.</span> <span data-i18n="step1_download">ดาวน์โหลดไฟล์จากลิงก์ด้านบน</span></li>
+          <li class="flex gap-3"><span class="font-bold text-green-500">2.</span> <span data-i18n="step2_follow">เปิดไฟล์และทำตามคำแนะนำ</span></li>
+          <li class="flex gap-3"><span class="font-bold text-green-500">3.</span> ถ้ามีคำถาม ติดต่อ support@aifactory.co</li>
+        </ol>
+      </div>
+
+      <!-- Share -->
+      <div class="mt-8 text-center">
+        <p class="text-slate-600 dark:text-slate-400 mb-4">ชอบไหม? ช่วยแชร์ให้เพื่อนด้วยนะ</p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://aifactory.co/thanks/03-freelance-pricing-calculator" target="_blank" rel="noopener" class="bg-blue-600 dark:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors">Facebook</a>
+          <a href="https://twitter.com/intent/tweet?text=%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%87%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%20Freelance%20Pricing%20Calculator%20%28THB%29%20%E0%B9%81%E0%B8%99%E0%B8%B0%E0%B8%99%E0%B8%B3%E0%B9%80%E0%B8%A5%E0%B8%A2%21&url=https://aifactory.co/thanks/03-freelance-pricing-calculator" target="_blank" rel="noopener" class="bg-sky-500 dark:bg-sky-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-sky-600 dark:hover:bg-sky-500 transition-colors">X (Twitter)</a>
+          <a href="https://line.me/R/msg/text/%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%87%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%20Freelance%20Pricing%20Calculator%20%28THB%29%20%E0%B9%81%E0%B8%99%E0%B8%B0%E0%B8%99%E0%B8%B3%E0%B9%80%E0%B8%A5%E0%B8%A2%21%20https://aifactory.co/thanks/03-freelance-pricing-calculator" target="_blank" rel="noopener" class="bg-green-500 dark:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-600 dark:hover:bg-green-500 transition-colors">LINE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order info -->
+  <section class="py-12 px-4 bg-slate-50">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-xl font-bold mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg> ข้อมูลการสั่งซื้อ</h3>
+      <div class="bg-white dark:bg-slate-700 rounded-xl p-6 shadow-sm space-y-2 text-slate-700 dark:text-slate-300 transition-colors duration-300">
+        <div class="flex justify-between"><span data-i18n="product_label">สินค้า:</span><span class="font-semibold">Freelance Pricing Calculator (THB)</span></div>
+        <div class="flex justify-between"><span data-i18n="price_label">ราคา:</span><span class="font-semibold">149 บาท</span></div>
+        <div class="flex justify-between"><span data-i18n="date_label">วันที่:</span><span class="font-semibold">2026-06-05</span></div>
+        <div class="flex justify-between"><span>Order ID:</span><span class="font-mono text-sm">ord_03_freelance_pricing_calculator</span></div>
+      </div>
+      <p class="text-sm text-slate-500 mt-4 text-center">ต้องการใบเสร็จ? ส่งอีเมลมาที่ support@aifactory.co</p>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="py-12 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <h3 class="text-xl font-bold mb-2"><span data-i18n="support_title">มีปัญหา?</span></h3>
+      <p class="text-slate-600 dark:text-slate-400 mb-4">ติดต่อเราได้ที่ <a href="mailto:support@aifactory.co" class="text-purple-600 underline">support@aifactory.co</a></p>
+      <p class="text-sm text-slate-500"><span data-i18n="refund_7days">นโยบายคืนเงิน 7 วัน</span> ไม่ถามเหตุผล</p>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-12 px-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-slate-800 dark:to-slate-800 transition-colors duration-300">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-5xl font-extrabold text-purple-600 mb-2">1,200+</div>
+      <p class="text-lg text-slate-700 mb-4"><span data-i18n="social_proof">ลูกค้า Ai Factory ไว้ใจเรา</span></p>
+      <div class="bg-white dark:bg-slate-700 rounded-2xl p-6 shadow-sm inline-block max-w-md transition-colors duration-300">
+        <p class="text-slate-700 italic mb-3">"คำนวณราคาได้แม่นมาก ไม่ต้องนั่งเดาอีกแล้ว"</p>
+        <p class="text-sm text-slate-500">— คุณอร, Freelance Developer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-sell -->
+  <section class="py-12 px-4">
+    <div class="max-w-2xl mx-auto">
+      <h3 class="text-xl font-bold mb-6 text-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg> สินค้าที่ลูกค้าชอบ</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="https://aifactory.co/sales_pages/thanks-04-cold-email-template-pack.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition text-center">
+          <div class="text-2xl mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+          <h4 class="font-bold text-sm mb-1">Cold Email Template Pack</h4>
+          <p class="text-slate-500 dark:text-slate-400 text-xs mb-3">10 template ตอบกลับ 15%+</p>
+          <span class="inline-block bg-purple-100 dark:bg-indigo-900 text-purple-700 dark:text-indigo-400 text-sm font-bold px-3 py-1 rounded-full">399 บาท</span>
+        </a>
+        <a href="https://aifactory.co/sales_pages/thanks-06-cv-international-template.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition text-center">
+          <div class="text-2xl mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+          <h4 class="font-bold text-sm mb-1">CV Template สมัครงานต่างประเทศ</h4>
+          <p class="text-slate-500 dark:text-slate-400 text-xs mb-3">CV ที่ recruiter อ่านจบใน 30 วิ</p>
+          <span class="inline-block bg-purple-100 dark:bg-indigo-900 text-purple-700 dark:text-indigo-400 text-sm font-bold px-3 py-1 rounded-full">199 บาท</span>
+        </a>
+        <a href="https://aifactory.co/sales_pages/thanks-09-finance-tracker-thb.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:shadow-lg transition text-center">
+          <div class="text-2xl mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.85c-.01 1.83-1.38 2.83-3.12 3.19z"/></svg></div>
+          <h4 class="font-bold text-sm mb-1">Finance Tracker (THB)</h4>
+          <p class="text-slate-500 dark:text-slate-400 text-xs mb-3">วางแผนการเงิน รองรับภาษีไทย</p>
+          <span class="inline-block bg-purple-100 dark:bg-indigo-900 text-purple-700 dark:text-indigo-400 text-sm font-bold px-3 py-1 rounded-full">149 บาท</span>
+        </a>
+      </div>
+      <p class="text-center mt-4"><a href="https://aifactory.co" class="text-purple-600 underline font-semibold"><span data-i18n="all_products_link">ดูสินค้าอื่นๆ ทั้งหมด →</span></a></p>
+    </div>
+  </section>
+
+  <footer class="py-8 px-4 bg-slate-900 dark:bg-black text-slate-400 dark:text-slate-500 text-center text-sm transition-colors duration-300">
+    <p><span data-i18n="footer_copyright">© 2026 Ai Factory</span> · <a href="mailto:support@aifactory.co" class="underline hover:text-white">support@aifactory.co</a></p>
+    <p class="mt-2"><a href="https://aifactory.co" class="underline hover:text-white"><span data-i18n="footer_all_products">ดูสินค้าอื่นๆ ทั้งหมด</span></a></p>
+  </footer>
+
+
+<script>
+  (function() {
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    function updateIcon() {
+      const isDark = html.classList.contains('dark');
+      const sun = toggle.querySelector('.sun-icon');
+      const moon = toggle.querySelector('.moon-icon');
+      if (sun) sun.style.display = isDark ? 'none' : 'block';
+      if (moon) moon.style.display = isDark ? 'block' : 'none';
+    }
+    
+    toggle.addEventListener('click', function() {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+      updateIcon();
+    });
+    
+    updateIcon();
+  })();
+</script>
+
+<script>
+let currentLang=localStorage.getItem('lang')||'th';
+function t(key){return translations[currentLang][key]||translations['th'][key]||key}
+function applyLanguage(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    const price=el.getAttribute('data-price');
+    if(price){el.textContent=t(key).replace('%PRICE%',price)}
+    else{el.textContent=t(key)}
+  });
+  const thSpans=document.querySelectorAll('.lang-th');
+  const enSpans=document.querySelectorAll('.lang-en');
+  thSpans.forEach(s=>{s.style.display=currentLang==='th'?'inline':'none'});
+  enSpans.forEach(s=>{s.style.display=currentLang==='en'?'inline':'none'});
+  document.documentElement.lang=currentLang;
+}
+document.addEventListener('DOMContentLoaded',function(){
+  const btn=document.getElementById('lang-toggle');
+  if(btn){btn.addEventListener('click',()=>{
+    currentLang=currentLang==='th'?'en':'th';
+    localStorage.setItem('lang',currentLang);
+    applyLanguage();
+  })}
+  applyLanguage();
+});
+</script>
+</body>
+</html>
