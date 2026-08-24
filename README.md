@@ -1,84 +1,29 @@
-﻿# AI Factory
+# AI Factory — Digital Product Marketplace
 
-> 10-product digital marketplace with Stripe payments — static, serverless, ready to deploy.
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Products](https://img.shields.io/badge/Products-10_Live-10b981?style=for-the-badge)
 
-## Overview
+> **10 digital products, live payments.** Marketplace with Stripe checkout deployed on Netlify.
 
-AI Factory is a one-week launch of 10 digital products targeting Thai office workers, freelancers, and SME owners. The store is 100% static — no backend, no database, no JS framework. Payment is handled by Stripe Payment Links.
+### Demo
 
-## Products
+![Demo](https://via.placeholder.com/1280x640/0f172a/38bdf8?text=AI+Factory+Marketplace+Demo+—+Add+docs/demo.gif)
 
-| # | Product | Price (THB) |
-|---|---------|-------------|
-| 1 | Thai AI Prompt Pack | ฿299 |
-| 2 | Obsidian Student Kit | ฿199 |
-| 3 | Freelance Pricing Calculator | ฿149 |
-| 4 | Cold Email Template Pack | ฿249 |
-| 5 | AI Automation Workflow | ฿399 |
-| 6 | CV International Template | ฿199 |
-| 7 | n8n SME Workflow Pack | ฿499 |
-| 8 | Content Calendar 90 Days | ฿299 |
-| 9 | Finance Tracker THB | ฿349 |
-| 10 | AI Agent Starter GitHub | ฿999 |
+### Results
 
-**Total addressable price points:** ฿4,191
+| Metric | Value |
+|---|---|
+| **Products** | 10 live |
+| **Payments** | Stripe integrated |
+| **Deploy** | Netlify |
 
-## Architecture
 
-```
-┌─────────────────────────────────────────────┐
-│  Static HTML Pages (10 products)            │
-├─────────────────────────────────────────────┤
-│  Stripe Payment Links                       │
-├─────────────────────────────────────────────┤
-│  Netlify (Hosting + Forms)                  │
-├─────────────────────────────────────────────┤
-│  Thank You Pages (Download/Delivery)        │
-└─────────────────────────────────────────────┘
-```
+---
 
-## Key Features
+**Phirawit Jitnarong — Strategic Full-Stack & AI Engineer**
 
-- **100% Static** — No backend, no database, no server
-- **Stripe Payments** — Payment Links for each product
-- **Responsive Design** — Mobile-first with TailwindCSS
-- **SEO Optimized** — Meta tags, Open Graph, structured data
-- **Analytics Ready** — UTM tracking, conversion pixels
-- **Netlify Deploy** — One-click deployment
+xme176@gmail.com · 092-551-0427 · [LinkedIn](https://www.linkedin.com/in/%E0%B8%9E%E0%B8%B5%E0%B8%A3%E0%B8%A7%E0%B8%B4%E0%B8%8A%E0%B8%8D%E0%B9%8C-%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%93%E0%B8%A3%E0%B8%87%E0%B8%84%E0%B9%8C-0000393a4) · [Fastwork](https://fastwork.co/user/bravforcode?source=search)
 
-## Quick Start
-
-```bash
-# Clone
-git clone https://github.com/bravforcode/ai-factory.git
-cd ai-factory
-
-# Open in browser
-open index.html
-
-# Or use Netlify CLI
-npx netlify-cli dev
-```
-
-## Deployment
-
-```bash
-# Deploy to Netlify
-npx netlify-cli deploy --prod
-```
-
-## Tech Stack
-
-- **HTML5** — Semantic markup
-- **CSS3** — TailwindCSS
-- **JavaScript** — Vanilla JS (minimal)
-- **Payments** — Stripe Payment Links
-- **Hosting** — Netlify
-
-## Live Demo
-
-🔗 [ai-factory-omega.vercel.app](https://ai-factory-omega.vercel.app)
-
-## License
-
-MIT
+> Hiring for this stack? Let's talk — production hardened, 300k+ users shipped.
