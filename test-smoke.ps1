@@ -50,6 +50,9 @@ $requiredFiles = @(
     "validation-strategy.md",
     "email-templates.md",
     "product-09-build-spec.md"
+    "checkout-config.js",
+    "revenue-os-checkout.js",
+    "scripts/route_checkout.py"
 )
 foreach ($f in $requiredFiles) {
     $path = Join-Path $ScriptDir $f
@@ -232,6 +235,33 @@ if ($gitignore -match '\.env') {
 }
 else {
     Test-Fail ".gitignore does not cover .env"
+}
+
+# Revenue OS checkout boundary: catalog pages must not retain direct Stripe links.
+Write-Host ""
+Write-Host "[7b] Revenue OS checkout boundary" -ForegroundColor Cyan
+foreach ($p in $products.products) {
+    $file = Join-Path $ScriptDir "$($p.slug).html"
+    $content = Get-Content $file -Raw -Encoding UTF8
+    if ($content -match 'revenue-os-checkout\.js') {
+        Test-Pass "$($p.slug).html: Revenue OS checkout script"
+    }
+    else {
+        Test-Fail "$($p.slug).html: Revenue OS checkout script missing"
+    }
+    if ($content -match 'href="https://buy\.stripe\.com/') {
+        Test-Fail "$($p.slug).html: direct Stripe link remains"
+    }
+    else {
+        Test-Pass "$($p.slug).html: no direct Stripe link"
+    }
+    $productBinding = 'data-revenue-product="' + $p.slug + '"'
+    if ($content.Contains($productBinding)) {
+        Test-Pass "$($p.slug).html: product slug bound"
+    }
+    else {
+        Test-Fail "$($p.slug).html: product slug binding missing"
+    }
 }
 
 $vercelignore = Get-Content (Join-Path $ScriptDir ".vercelignore") -Raw -Encoding UTF8

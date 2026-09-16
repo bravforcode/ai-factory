@@ -14,6 +14,9 @@ fulfillment. No production or live-payment claim is made by this file.
 - `products.json` is the storefront display catalog.
 - `stripe-links-live.json` contains customer-facing Payment Link URLs only; it is
   not proof that the links are live, reachable, correctly priced, or fulfilled.
+- Catalog product pages now route checkout through `revenue-os-checkout.js`;
+  an empty `checkout-config.js` API base intentionally blocks payment instead
+  of falling back to direct Stripe links.
 - `test-smoke.ps1` is local-only and must not be read as deployment evidence.
 - `test-all-stripe.py` is a test-mode browser flow and must not be run against
   live links or live keys.
@@ -26,8 +29,9 @@ fulfillment. No production or live-payment claim is made by this file.
 2. Move paid assets to private storage managed by Revenue OS.
 3. Complete Revenue OS staging and production-dark evidence, including signed
    webhook, idempotency, entitlement, delivery, refund, and rollback receipts.
-4. Obtain explicit approval for one bounded real-payment canary.
-5. Reconcile the canary before enabling additional products or paid traffic.
+4. Configure the public Revenue OS API base and CORS origin for the storefront.
+5. Obtain explicit approval for one bounded real-payment canary.
+6. Reconcile the canary before enabling additional products or paid traffic.
 
 See `security/secret-remediation-2026-09-16.md` for the redacted remediation
 record. No dashboard mutation, deploy, archive, delete, or live payment was

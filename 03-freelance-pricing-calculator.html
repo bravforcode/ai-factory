@@ -275,7 +275,7 @@ const translations = {
           <li class="flex gap-2"><span class="text-green-500">✓</span> ใช้ได้ตลอดชีพ</li>
           <li class="flex gap-2"><span class="text-green-500">✓</span> คืนเงิน 7 วัน</li>
         </ul>
-        <a href="https://buy.stripe.com/PLACEHOLDER_03_FREELANCE" class="block text-center bg-purple-600 text-white font-bold text-lg py-5 rounded-2xl hover:bg-purple-700 transition shadow-lg">ซื้อเลย</a>
+        <a href="#buy" data-revenue-product="03-freelance-pricing-calculator" class="block text-center bg-purple-600 text-white font-bold text-lg py-5 rounded-2xl hover:bg-purple-700 transition shadow-lg">ซื้อเลย</a>
         <p class="text-center text-sm text-slate-500 dark:text-slate-400 mt-4">ชำระเงินปลอดภัยผ่าน Stripe</p>
       </div>
     </div>
@@ -305,7 +305,7 @@ const translations = {
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-6">พร้อมคำนวณราคาอย่างโปร?</h2>
       <p class="text-xl mb-10 opacity-95">หยุดเดาราคา — เริ่มคิดต้นทุน+กำไร อย่างมั่นใจตั้งแต่วันนี้</p>
-      <a href="https://buy.stripe.com/PLACEHOLDER_03_FREELANCE" class="inline-block bg-white text-pink-600 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ ฿299</a>
+      <a href="#buy" data-revenue-product="03-freelance-pricing-calculator" class="inline-block bg-white text-pink-600 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ ฿299</a>
       <p class="text-sm opacity-90 mt-6">✅ ดาวน์โหลดทันที · ✅ ใช้ได้ตลอดชีพ · ✅ คืนเงิน 7 วัน</p>
     </div>
   </section>
@@ -365,5 +365,7 @@ document.addEventListener('DOMContentLoaded',function(){
   applyLanguage();
 });
 </script>
+<script src="/checkout-config.js"></script>
+<script src="/revenue-os-checkout.js" defer></script>
 </body>
 </html>
