@@ -40,6 +40,8 @@ $requiredFiles = @(
     "README.md",
     "LAUNCH-CHECKLIST.md",
     "SECURITY.md",
+    ".vercelignore",
+    "security/secret-remediation-2026-09-16.md",
     ".env.example",
     ".gitignore",
     "replace-stripe-links.ps1",
@@ -230,6 +232,14 @@ if ($gitignore -match '\.env') {
 }
 else {
     Test-Fail ".gitignore does not cover .env"
+}
+
+$vercelignore = Get-Content (Join-Path $ScriptDir ".vercelignore") -Raw -Encoding UTF8
+if ($vercelignore -match '(?m)^downloads/') {
+    Test-Pass ".vercelignore excludes downloads/"
+}
+else {
+    Test-Fail ".vercelignore does not exclude downloads/"
 }
 
 # 6. JSON validity

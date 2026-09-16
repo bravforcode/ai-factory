@@ -33,7 +33,8 @@ param(
     [switch]$SkipTests,
     [string]$VercelProjectName = "Ai Factory-sales-pages",
     [string]$StripeKey = "",  # Optional: pass inline instead of env var (NOT for chat)
-    [string]$VercelToken = ""  # Optional: pass inline instead of env var (NOT for chat)
+    [string]$VercelToken = "",  # Optional: pass inline instead of env var (NOT for chat)
+    [string]$LiveApproval = ""   # Must be an explicit canary approval phrase
 )
 
 $ErrorActionPreference = "Stop"
@@ -88,7 +89,15 @@ if ($stripeKey -match '^sk_live_' -and -not $Live) {
 }
 
 if ($Live) {
+    $liveApprovalValue = if ($LiveApproval) { $LiveApproval } else { $env:AI_FACTORY_LIVE_APPROVAL }
+    if ($liveApprovalValue -ne "APPROVE_AI_FACTORY_LIVE_CANARY") {
+        Write-Err "Live mode requires AI_FACTORY_LIVE_APPROVAL=APPROVE_AI_FACTORY_LIVE_CANARY"
+        Write-Info "No live payment or deploy was started. Complete Revenue OS gates first."
+        Stop-Transcript | Out-Null
+        exit 1
+    }
     Write-Warn "LIVE MODE - real money will be charged to customers"
+    Write-Warn "Approval phrase accepted for one bounded canary only"
     Write-Warn "Press Ctrl+C in 5 seconds to cancel..."
     Start-Sleep -Seconds 5
     Write-OK "Continuing in LIVE mode (you waited 5s)"
