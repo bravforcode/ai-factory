@@ -1,0 +1,23 @@
+# Credentials, local evidence, and paid fulfillment assets must never ship.
+.env*
+*.key
+*.pem
+.stripe-test-key
+stripe-intents.json
+stripe-test-report.json
+e2e-results.json
+e2e-screenshots/
+deploy-*.log
+
+# Paid files are delivered by Revenue OS private storage after payment.
+downloads/
+
+# Internal operator material is not part of the storefront.
+STATE.md
+SECURITY.md
+*.py
+*.ps1
+*.md
+*.json
+!products.json
+!stripe-links-live.json
