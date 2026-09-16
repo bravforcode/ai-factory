@@ -12,6 +12,7 @@
 stripe-links.json         # contains real payment links — keep local only
 deploy-*.log              # may contain API responses
 whsec_*
+downloads/
 .stripe-test-key
 stripe-intents.json
 stripe-test-report.json
