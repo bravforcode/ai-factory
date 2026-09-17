@@ -284,7 +284,7 @@ const translations = {
           <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> ใช้ได้ตลอดชีพ</li>
           <li class="flex gap-2"><span class="text-green-500"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span> คืนเงิน 7 วัน</li>
         </ul>
-        <a href="https://buy.stripe.com/cNi5kvcvwbixc0M2UY5EY09" class="block text-center bg-purple-600 text-white font-bold text-lg py-5 rounded-2xl hover:bg-purple-700 transition shadow-lg"><span data-i18n="cta_buy_now">ซื้อเลย</span></a>
+        <a href="#buy" data-revenue-product="10-ai-agent-starter-github" class="block text-center bg-purple-600 text-white font-bold text-lg py-5 rounded-2xl hover:bg-purple-700 transition shadow-lg"><span data-i18n="cta_buy_now">ซื้อเลย</span></a>
         <p class="text-center text-sm text-slate-500 dark:text-slate-400 mt-4"><span data-i18n="secure_payment">ชำระเงินปลอดภัยผ่าน Stripe</span></p>
       </div>
     </div>
@@ -320,7 +320,7 @@ const translations = {
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-6"><span data-i18n="final_cta_title">พร้อมเริ่มแล้ว?</span></h2>
       <p class="text-xl mb-10 opacity-95">หยุดอ่าน docs 2 อาทิตย์ — รัน AI agent ได้ใน 1 ชั่วโมง</p>
-      <a href="https://buy.stripe.com/cNi5kvcvwbixc0M2UY5EY09" class="inline-block bg-white text-pink-600 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ <span data-i18n="mobile_buy" data-price="999">ซื้อ 999 บาท →</span></a>
+      <a href="#buy" data-revenue-product="10-ai-agent-starter-github" class="inline-block bg-white text-pink-600 font-bold text-lg md:text-xl px-12 py-5 rounded-full shadow-2xl hover:scale-105 transition">ซื้อ <span data-i18n="mobile_buy" data-price="999">ซื้อ 999 บาท →</span></a>
       <p class="text-sm opacity-90 mt-6"><span data-i18n="permanent_use"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ดาวน์โหลดทันที</span> · <span data-i18n="lifetime"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ใช้ได้ตลอดชีพ</span> · <span data-i18n="refund7"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> คืนเงิน 7 วัน</span></p>
     </div>
   </section>
@@ -385,5 +385,7 @@ document.addEventListener('DOMContentLoaded',function(){
   applyLanguage();
 });
 </script>
+<script src="/checkout-config.js"></script>
+<script src="/revenue-os-checkout.js" defer></script>
 </body>
 </html>

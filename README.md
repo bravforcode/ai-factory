@@ -3,9 +3,10 @@
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-![Products](https://img.shields.io/badge/Products-10_Live-10b981?style=for-the-badge)
+![Products](https://img.shields.io/badge/Products-10_Catalog-64748b?style=for-the-badge)
 
-> **10 digital products, live payments.** Marketplace with Stripe checkout deployed on Netlify.
+> **10-product storefront.** Checkout is routed through Revenue OS and remains
+> disabled until the public API base and release evidence are configured.
 
 ### Demo
 
@@ -15,9 +16,9 @@
 
 | Metric | Value |
 |---|---|
-| **Products** | 10 live |
-| **Payments** | Stripe integrated |
-| **Deploy** | Netlify |
+| **Products** | 10 catalog pages |
+| **Payments** | Revenue OS checkout bridge (launch-gated) |
+| **Deploy** | Static hosting (deployment not evidenced here) |
 
 
 ---

@@ -12,6 +12,12 @@
 stripe-links.json         # contains real payment links — keep local only
 deploy-*.log              # may contain API responses
 whsec_*
+downloads/
+.stripe-test-key
+stripe-intents.json
+stripe-test-report.json
+e2e-results.json
+e2e-screenshots/
 
 # OS
 .DS_Store
@@ -49,3 +55,4 @@ temp/
 *.bak
 
 .vercel
+!.vercelignore
